@@ -1,0 +1,1738 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>G10 English Mega Revision Hub • Miss Rana Khaled & Abdelrahman Abdallah</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              400: '#818cf8',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              900: '#1e1b4b',
+              950: '#0f172a',
+            },
+            accent: {
+              cyan: '#38bdf8',
+              teal: '#34d399',
+              amber: '#fbbf24',
+              rose: '#f87171'
+            }
+          },
+          fontFamily: {
+            cairo: ['Cairo', 'sans-serif'],
+            inter: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Cairo', sans-serif; }
+    html[dir="ltr"] body { font-family: 'Inter', sans-serif; }
+    .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: #0b1120; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #475569; }
+    .en-code {
+      direction: ltr !important;
+      text-align: left !important;
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    @media print {
+      .no-print { display: none !important; }
+      body { background: #ffffff !important; color: #000000 !important; }
+      .tab-pane { display: block !important; }
+      .print-page-break { page-break-before: always; }
+      .bg-slate-900, .bg-slate-950, .bg-slate-900\/80 {
+        background: transparent !important;
+        color: #000000 !important;
+        border-color: #cbd5e1 !important;
+      }
+      .text-white, .text-slate-200, .text-slate-300, .text-slate-400 {
+        color: #0f172a !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-[#0b1120] text-slate-200 min-h-screen selection:bg-indigo-600/60 selection:text-white custom-scrollbar">
+
+  <!-- Scroll Progress Bar -->
+  <div id="scrollProgress" class="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-sky-400 via-indigo-500 to-amber-400 z-50 transform origin-right scale-x-0 transition-transform"></div>
+
+  <!-- Toast Notification Box -->
+  <div id="toast" class="fixed bottom-6 left-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 bg-slate-900/95 border border-slate-700/80 text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-3 backdrop-blur-md">
+    <i class="fa-solid fa-circle-check text-emerald-400 text-xl"></i>
+    <span id="toastMsg" class="text-xs sm:text-sm font-semibold">تم نسخ التلخيص بنجاح!</span>
+  </div>
+
+  <!-- Printable Header (Print Mode Only) -->
+  <div class="hidden print:block text-center mb-8 border-b-2 border-slate-900 pb-4">
+    <h1 class="text-2xl font-black text-slate-900">ملزمة مراجعة اللغة الإنجليزية الشاملة • الصف الأول الثانوي (Term 1)</h1>
+    <p class="text-sm font-bold text-slate-700 mt-1">
+      المعلومات مجمعة بواسطة: مس رنا خالد | إعداد وبرمجة: عبدالرحمن عبدالله | برعاية: نموذج جيميناي
+    </p>
+  </div>
+
+  <!-- Sticky Navbar -->
+  <header class="sticky top-0 z-40 bg-[#0f172a]/90 backdrop-blur-md border-b border-slate-800/80 no-print transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+        <div class="flex items-center gap-3 cursor-pointer" onclick="switchTab('ministry')">
+          <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-indigo-600 to-sky-500 flex items-center justify-center shadow-lg shadow-indigo-500/15">
+            <i class="fa-solid fa-book-bookmark text-white text-xl"></i>
+          </div>
+          <div>
+            <span class="text-base sm:text-lg font-black text-slate-100 flex items-center gap-2">
+              <span class="txt-ar">الموسوعة الإنجليزية</span>
+              <span class="txt-en hidden">English Mega Hub</span>
+              <span class="text-[11px] px-2.5 py-0.5 rounded-full bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 font-mono">G10 Term 1</span>
+            </span>
+            <p class="text-xs text-slate-400 font-mono hidden sm:block">Ministry Curriculum &amp; Upstream Suite</p>
+          </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <nav class="hidden lg:flex items-center gap-1.5 text-xs font-semibold">
+          <button onclick="switchTab('ministry')" class="tab-btn px-3.5 py-2 rounded-xl text-sky-300 bg-slate-800/90 border border-slate-700 transition flex items-center gap-1.5" data-tab="ministry">
+            <i class="fa-solid fa-school text-sky-400"></i>
+            <span class="txt-ar">كتاب الوزارة (U1 &amp; U2)</span>
+            <span class="txt-en hidden">Ministry U1 &amp; U2</span>
+          </button>
+          <button onclick="switchTab('upstream')" class="tab-btn px-3.5 py-2 rounded-xl text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 transition flex items-center gap-1.5" data-tab="upstream">
+            <i class="fa-solid fa-house-chimney text-emerald-400"></i>
+            <span class="txt-ar">مفردات وأفعال Upstream</span>
+            <span class="txt-en hidden">Upstream Vocab</span>
+          </button>
+          <button onclick="switchTab('commas')" class="tab-btn px-3.5 py-2 rounded-xl text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 transition flex items-center gap-1.5" data-tab="commas">
+            <i class="fa-solid fa-quote-left text-amber-400"></i>
+            <span class="txt-ar">الفواصل الـ 4 والكتابة</span>
+            <span class="txt-en hidden">4 Commas &amp; Writing</span>
+          </button>
+          <button onclick="switchTab('novel')" class="tab-btn px-3.5 py-2 rounded-xl text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 transition flex items-center gap-1.5" data-tab="novel">
+            <i class="fa-solid fa-anchor text-cyan-400"></i>
+            <span class="txt-ar">القصة (Ch 1 &amp; 2)</span>
+            <span class="txt-en hidden">The Novel (Ch 1 &amp; 2)</span>
+          </button>
+          <button onclick="switchTab('quiz')" class="tab-btn px-3.5 py-2 rounded-xl text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 transition flex items-center gap-1.5" data-tab="quiz">
+            <i class="fa-solid fa-circle-question text-rose-400"></i>
+            <span class="txt-ar">الامتحان الشامل (77 سؤال)</span>
+            <span class="txt-en hidden">Mega Test Bank</span>
+          </button>
+        </nav>
+
+        <!-- Utility Buttons -->
+        <div class="flex items-center gap-2">
+          <!-- Text to speech button -->
+          <button onclick="speakText(document.querySelector('.tab-pane:not(.hidden)').innerText)" title="قراءة الصفحة صوتياً" class="p-2.5 rounded-xl bg-slate-800/70 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-700/70 transition">
+            <i class="fa-solid fa-volume-high text-sky-400"></i>
+          </button>
+          <!-- Print Booklet Button -->
+          <button onclick="window.print()" title="طباعة ملزمة ورقية" class="p-2.5 rounded-xl bg-slate-800/70 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-700/70 transition">
+            <i class="fa-solid fa-print text-amber-400"></i>
+          </button>
+          <!-- Language Toggle -->
+          <button onclick="toggleLanguage()" class="px-3.5 py-2 rounded-xl bg-slate-800/70 border border-slate-700 hover:bg-slate-800 text-sky-300 font-semibold text-xs flex items-center gap-2 transition shadow-sm">
+            <i class="fa-solid fa-language text-base text-emerald-400"></i>
+            <span id="langBtnText">English</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Header -->
+  <section class="relative py-10 border-b border-slate-800/80 bg-gradient-to-b from-[#0f172a] to-[#0b1120] no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      
+      <!-- Attribution Badges -->
+      <div class="flex flex-wrap items-center justify-center gap-2.5 mb-5 text-xs sm:text-sm">
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/80 border border-slate-800 text-slate-300 shadow-sm">
+          <i class="fa-solid fa-circle-check text-sky-400"></i>
+          <span class="txt-ar">المعلومات مجمعة بواسطة: <strong class="text-white font-bold">مس رنا خالد</strong></span>
+          <span class="txt-en hidden">Information gathered by: <strong class="text-white font-bold">Miss Rana Khaled</strong></span>
+        </span>
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/80 border border-slate-800 text-slate-300 shadow-sm">
+          <i class="fa-solid fa-code text-indigo-400"></i>
+          <span class="txt-ar">الموقع معمول بواسطة: <strong class="text-white font-bold">عبدالرحمن عبدالله</strong></span>
+          <span class="txt-en hidden">Website made by: <strong class="text-white font-bold">Abdelrahman Abdallah</strong></span>
+        </span>
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/80 border border-slate-800 text-slate-300 shadow-sm">
+          <i class="fa-solid fa-sparkles text-amber-400"></i>
+          <span class="txt-ar">برعاية: <strong class="text-white font-bold">نموذج جيميناي (Gemini)</strong></span>
+          <span class="txt-en hidden">Powered by: <strong class="text-white font-bold">Gemini Pro</strong></span>
+        </span>
+      </div>
+
+      <h1 class="text-2xl sm:text-4xl lg:text-5xl font-black text-slate-100 leading-snug mb-3">
+        <span class="txt-ar">المنصة الشاملة لمراجعة إنجليزي الصف الأول الثانوي</span>
+        <span class="txt-en hidden">G10 English Comprehensive Revision Hub</span>
+      </h1>
+      <p class="max-w-3xl mx-auto text-slate-400 text-xs sm:text-sm leading-relaxed mb-4 font-cairo">
+        <span class="txt-ar">تفريغ دقيق ومريح للعين: نصوص وقواعد كتاب الوزارة، تدريبات ومفردات منهج Upstream، أحكام الفواصل الأربعة، مهارات المقال والتوثيق، ورواية العجوز والبحر مع بنك أسئلة الـ 77 سؤالاً كاملاً.</span>
+        <span class="txt-en hidden">Organized and accessible review: Ministry Units 1 &amp; 2, Upstream Vocabulary and Phrasal Verbs, The 4 Comma Rules, Academic Writing protocols, and The Old Man and the Sea with all 77 practice questions.</span>
+      </p>
+
+    </div>
+  </section>
+
+  <!-- Main Content Space -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+
+    <!-- ============================================================== -->
+    <!-- 1. MINISTRY CURRICULUM (UNITS 1 & 2)                           -->
+    <!-- ============================================================== -->
+    <section id="sec-ministry" class="tab-pane space-y-8">
+      <div class="flex items-center justify-between border-b border-slate-800/80 pb-3 flex-wrap gap-2">
+        <div>
+          <span class="text-sky-400 text-xs font-semibold uppercase tracking-wider font-mono">Ministry Curriculum 2025/2026 • In-Depth Analysis</span>
+          <h2 class="text-xl sm:text-2xl font-black text-slate-100 mt-1">
+            <span class="txt-ar">١. كتاب الوزارة: شرح الوحدتين الأولى والثانية بالتفصيل المنظم</span>
+            <span class="txt-en hidden">1. Ministry Textbook: Units 1 &amp; 2 Academic Breakdown</span>
+          </h2>
+        </div>
+        <button onclick="speakText(document.getElementById('sec-ministry').innerText)" class="px-3 py-1.5 rounded-lg bg-slate-800/70 hover:bg-slate-800 text-xs font-semibold text-slate-300 flex items-center gap-1.5 transition">
+          <i class="fa-solid fa-volume-high text-sky-400"></i>
+          <span class="txt-ar">استمع للقسم</span><span class="txt-en hidden">Listen Section</span>
+        </button>
+      </div>
+
+      <!-- Unit 1 & Unit 2 Detailed Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- Unit 1 -->
+        <div class="bg-slate-900/60 border border-slate-800/90 rounded-3xl p-6 sm:p-7 space-y-5">
+          <div class="flex items-center justify-between">
+            <h3 class="text-lg sm:text-xl font-bold text-sky-300">Unit 1: Egypt's Heritage (تراث مصر الخالد)</h3>
+            <span class="text-xs px-2.5 py-0.5 rounded-full bg-sky-950/60 text-sky-300 border border-sky-800/50 font-mono">Past Tenses</span>
+          </div>
+
+          <div class="space-y-4 text-xs leading-relaxed text-slate-300">
+            <div class="p-4 bg-slate-950/70 rounded-2xl border border-slate-800 space-y-2">
+              <b class="text-sky-400 block text-sm">أولاً: التحليل الموضوعي لنصوص الوحدة الأولى:</b>
+              <p>• <b>عراقة الحضارة (Ancient Civilization):</b> مصر مهد الحضارة الإنسانية؛ قدّم أجدادنا معارف رائدة في الكتابة، والرياضيات، والطب، والزراعة.</p>
+              <p>• <b>الكتابة الهيروغليفية (Hieroglyphs):</b> لم تكن مجرد فن وزخارف على جدران المعابد، بل كانت أداة رسمية لتدوين وتوثيق التاريخ والأحداث السياسية والدينية.</p>
+              <p>• <b>مكتبة الإسكندرية (Library of Alexandria):</b> كانت مركزاً عالمياً لتجميع المعرفة وملاذاً لعلماء العالم القديم لتبادل العلوم.</p>
+              <p>• <b>مفترق طرق التجارة (Crossroads for Trade):</b> بفضل نهر النيل والموقع الاستراتيجي، تاجر المصريون في الذهب، والتوابل، وورق البردي (<span class="en-code text-sky-300 font-semibold">Papyrus</span>)، والحبوب.</p>
+              <p>• <b>النهضة الحديثة:</b> الربط بين الماضي العريق والحاضر المتطور من خلال مشروعات الطرق والكباري الحديثة وافتتاح المتحف المصري الكبير (<span class="en-code text-sky-300 font-semibold">Grand Egyptian Museum</span>).</p>
+            </div>
+
+            <div class="p-4 bg-slate-950/70 rounded-2xl border border-slate-800 space-y-3">
+              <b class="text-indigo-400 block text-sm">ثانياً: الجرامر بالتفصيل الدقيق (Past Simple vs. Past Continuous):</b>
+              
+              <div class="space-y-1.5">
+                <b class="text-white block">١. الماضي البسيط (Past Simple):</b>
+                <p>يعبر عن حدث بدأ وانتهى تماماً في نقطة زمنية محددة في الماضي:</p>
+                <div class="p-2.5 bg-slate-900 rounded-xl border border-slate-800 en-code w-full text-emerald-400 font-mono text-[11px]">
+                  The Ancient Egyptians taught the world mathematics.
+                </div>
+                <p class="text-slate-400">يعبر عن عادة قديمة لم تعد مستمرة مع (<span class="en-code text-slate-300">used to + inf</span>): <span class="en-code text-slate-300">He used to live in a village.</span></p>
+              </div>
+
+              <div class="space-y-1.5">
+                <b class="text-white block">٢. الماضي المستمر (Past Continuous: was/were + v-ing):</b>
+                <p>حدث كان مستمراً أثناء وقت محدد بالدقة في الماضي:</p>
+                <div class="p-2.5 bg-slate-900 rounded-xl border border-slate-800 en-code w-full text-emerald-400 font-mono text-[11px]">
+                  At 8 p.m. yesterday, Sama was reading a historical book.
+                </div>
+                <p>حدث طويل كان مستمراً وقطعه فجأة حدث قصير (في الماضي البسيط):</p>
+                <div class="p-2.5 bg-slate-900 rounded-xl border border-slate-800 en-code w-full text-emerald-400 font-mono text-[11px]">
+                  Mr. Ramy was calling his wife when he dropped his mobile.
+                </div>
+              </div>
+
+              <div class="p-3 bg-slate-900/90 rounded-xl border border-slate-800 space-y-1.5 text-slate-300">
+                <b class="text-amber-300 block">معادلات الروابط الزمنية وفخاخ الامتحان:</b>
+                <p>• <span class="en-code text-white">While / As / Just as + Past Continuous, Past Simple</span></p>
+                <p>• <span class="en-code text-white">When + Past Simple, Past Continuous</span></p>
+                <p>• <b>حذف الفاعل:</b> إذا لم يأتِ فاعل بعد <span class="en-code text-sky-300">While</span> نختار مباشرة <span class="en-code text-sky-300">verb + ing</span>:
+                <br><span class="en-code text-emerald-300">While watching the match, I fell asleep.</span></p>
+                <p>• <b>قاعدة During:</b> تعطي نفس المعنى ولكن يليها <b>اسم (Noun)</b> فقط بلا فعل:
+                <br><span class="en-code text-emerald-300">During the match, the player broke his leg.</span></p>
+                <p>• <b>فخ أفعال الحالة (Stative Verbs):</b> أفعال الملكية والإدراك والشعور (<span class="en-code text-amber-300">be, have, look, seem, belong</span>) لا تأتي في صيغة الاستمرار:
+                <br><span class="en-code text-emerald-300">While he was at home (NOT: while he was being...)</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Unit 2 -->
+        <div class="bg-slate-900/60 border border-slate-800/90 rounded-3xl p-6 sm:p-7 space-y-5">
+          <div class="flex items-center justify-between">
+            <h3 class="text-lg sm:text-xl font-bold text-emerald-400">Unit 2: Hands Help, Hearts Care (عطاء القلوب)</h3>
+            <span class="text-xs px-2.5 py-0.5 rounded-full bg-emerald-950/60 text-emerald-300 border border-emerald-800/50 font-mono">Modals of Obligation</span>
+          </div>
+
+          <div class="space-y-4 text-xs leading-relaxed text-slate-300">
+            <div class="p-4 bg-slate-950/70 rounded-2xl border border-slate-800 space-y-2">
+              <b class="text-emerald-400 block text-sm">أولاً: التحليل الموضوعي لدروس الوحدة الثانية:</b>
+              <p>• <b>قصة الخبز الدافئ (The Warm Bread):</b> كانت سما تشعر بالعزلة وتراجع الدرجات، فزارتها جارتها مسز آية بخبز دافئ؛ وعلّمتها القصة كيف أن اللمسات الإنسانية البسيطة تغير المزاج تماماً وتلهم الشخص لمساعدة أسرته والآخرين.</p>
+              <p>• <b>مبادرة غرس الأشجار (Planting Trees):</b> قاد أحمد حملة شبابية لتشجير القرية بغرس الشتلات الصغيرة (<span class="en-code text-emerald-300">Saplings</span>)، مما عزز ثقتهم بأنفسهم (<span class="en-code text-emerald-300">Confidence</span>) وحوّل قريتهم لبيئة صحية مستدامة.</p>
+              <p>• <b>أبطال المجتمع في الخطر (Serving in Danger):</b> رجل الإطفاء رضوان بالإسكندرية يوضح أن عمله لا يقتصر على إخماد الحرائق، بل يشمل الإنقاذ من الحوادث والفيضانات، معتبراً الخدمة واجباً (<span class="en-code text-emerald-300">Obligation</span>) لحماية الأمل في المجتمع.</p>
+            </div>
+
+            <div class="p-4 bg-slate-950/70 rounded-2xl border border-slate-800 space-y-3">
+              <b class="text-emerald-400 block text-sm">ثانياً: الجرامر بالتفصيل الدقيق (Modal Verbs: Must, Have to, Should):</b>
+
+              <div class="space-y-1">
+                <b class="text-white block">١. الفعل Must والمصدر:</b>
+                <p>• <b>القوانين والقواعد الرسمية المكتوبة:</b> <span class="en-code text-emerald-300">Drivers must follow traffic signs.</span></p>
+                <p>• <b>الإلزام الداخلي الصادر من النفس:</b> <span class="en-code text-emerald-300">I must buy a gift for my mother today.</span></p>
+                <p>• <b>الدعوة الحارة (Warm Invitation):</b> <span class="en-code text-emerald-300">You must come and try my cake.</span></p>
+              </div>
+
+              <div class="space-y-1">
+                <b class="text-white block">٢. التحريم والمنع البات (Mustn't + inf):</b>
+                <p>ممنوع ومحظور بقوة القانون (<span class="en-code text-rose-400">Prohibited / Forbidden / Not allowed</span>):</p>
+                <div class="p-2.5 bg-slate-900 rounded-xl border border-slate-800 en-code w-full text-rose-300 font-mono text-[11px]">
+                  You mustn't park here; there is a "No Parking" sign.
+                </div>
+              </div>
+
+              <div class="space-y-1">
+                <b class="text-white block">٣. الإلزام الخارجي المفروض (Have to / Has to):</b>
+                <p>إلزام مفروض بسلطة أو ظرف لا تملك فيه خياراً:</p>
+                <div class="p-2.5 bg-slate-900 rounded-xl border border-slate-800 en-code w-full text-sky-300 font-mono text-[11px]">
+                  We have to stay late at work today; the boss ordered us.
+                </div>
+                <p class="text-slate-400">• <b>عدم الإلزام (Don't / Doesn't have to):</b> لست مضطراً ولا داعي: <span class="en-code text-slate-300">Tomorrow is a holiday; you don't have to wake up early.</span></p>
+              </div>
+
+              <div class="space-y-1">
+                <b class="text-white block">٤. النصيحة الودية والاقتراح (Should / Shouldn't):</b>
+                <p><span class="en-code text-amber-300">You should drink plenty of water in hot weather.</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- 2. UPSTREAM VOCABULARY & PHRASAL VERBS                         -->
+    <!-- ============================================================== -->
+    <section id="sec-upstream" class="tab-pane hidden space-y-8">
+      <div class="flex items-center justify-between border-b border-slate-800/80 pb-3 flex-wrap gap-2">
+        <div>
+          <span class="text-emerald-400 text-xs font-semibold uppercase tracking-wider font-mono">Upstream Specialized Lexicon • Full Detail</span>
+          <h2 class="text-xl sm:text-2xl font-black text-slate-100 mt-1">
+            <span class="txt-ar">٢. مفردات البيوت والقلاع، الأفعال الاصطلاحية، والتعبيرات بالتحليل الشامل</span>
+            <span class="txt-en hidden">2. Upstream Architecture, Phrasal Verbs &amp; Idiomatic Phrases</span>
+          </h2>
+        </div>
+        <button onclick="speakText(document.getElementById('sec-upstream').innerText)" class="px-3 py-1.5 rounded-lg bg-slate-800/70 hover:bg-slate-800 text-xs font-semibold text-slate-300 flex items-center gap-1.5 transition">
+          <i class="fa-solid fa-volume-high text-emerald-400"></i>
+          <span class="txt-ar">استمع للقسم</span><span class="txt-en hidden">Listen Section</span>
+        </button>
+      </div>
+
+      <!-- Housing, Roofing & Safety Devices -->
+      <div class="bg-slate-900/60 border border-slate-800/90 rounded-3xl p-6 sm:p-8 space-y-6">
+        <h3 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+          <i class="fa-solid fa-house-chimney text-sky-400"></i>
+          <span class="txt-ar">أنواع الأسقف، العمارة القروسطية، وأدوات أمان الأطفال</span>
+          <span class="txt-en hidden">Detailed Housing Architecture &amp; Child Safety Devices</span>
+        </h3>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-xs">
+          <div class="bg-slate-950/70 p-4 rounded-2xl border border-slate-800 space-y-1.5">
+            <b class="text-sky-300 text-sm block">Thatched roof (سقف قش)</b>
+            <p class="text-slate-300 leading-relaxed">سقف تقليدي ريفي مصنوع من القش والبوص وأعواد النباتات المجففة (<span class="en-code text-slate-200">straw or reeds</span>). ممتاز في العزل الحراري لكنه قابل للاشتعال.</p>
+          </div>
+          <div class="bg-slate-950/70 p-4 rounded-2xl border border-slate-800 space-y-1.5">
+            <b class="text-sky-300 text-sm block">Pitched roof (سقف مائل)</b>
+            <p class="text-slate-300 leading-relaxed">سقف مصمم بانحدار مائل (<span class="en-code text-slate-200">sloping roof</span>) ليتيح لمياه الأمطار والثلوج الانزلاق والسقوط دون إثقال المبنى.</p>
+          </div>
+          <div class="bg-slate-950/70 p-4 rounded-2xl border border-slate-800 space-y-1.5">
+            <b class="text-sky-300 text-sm block">Tiled roof (سقف قرميدي)</b>
+            <p class="text-slate-300 leading-relaxed">سقف مغطى بقطع متراصة من القرميد الفخاري المصنوع من الطين المحروق الصلب (<span class="en-code text-slate-200">baked clay tiles</span>)، وهو متين ومقاوم للطقس.</p>
+          </div>
+          <div class="bg-slate-950/70 p-4 rounded-2xl border border-slate-800 space-y-1.5">
+            <b class="text-amber-300 text-sm block">The Keep (الحصن الداخلي)</b>
+            <p class="text-slate-300 leading-relaxed">البرج الرئيسي الأكثر تحصيناً ومناعة في قلب القلعة القروسطية، سكنت فيه عائلة اللورد والبارون كخط دفاع أخير أثناء الحصار.</p>
+          </div>
+          <div class="bg-slate-950/70 p-4 rounded-2xl border border-slate-800 space-y-1.5">
+            <b class="text-amber-300 text-sm block">Moat (الخندق المائي)</b>
+            <p class="text-slate-300 leading-relaxed">قناة مائية عميقة وواسعة محفورة حول أسوار القلعة بالكامل ومملوءة بالماء لمنع تقدم آلات الحصار والجنود المهاجمين.</p>
+          </div>
+          <div class="bg-slate-950/70 p-4 rounded-2xl border border-slate-800 space-y-1.5">
+            <b class="text-amber-300 text-sm block">Drawbridge (الجسر المتحرك)</b>
+            <p class="text-slate-300 leading-relaxed">جسر خشبي ثقيل مثبت بسلاسل، يمكن رفعه وسحبه لأعلى (<span class="en-code text-slate-200">pulled up</span>) لقطع العبور فوق الخندق المائي عند حدوث خطر.</p>
+          </div>
+          <div class="bg-slate-950/70 p-4 rounded-2xl border border-slate-800 space-y-1.5">
+            <b class="text-emerald-300 text-sm block">Safety Covers (أغطية المقابس)</b>
+            <p class="text-slate-300 leading-relaxed">سدادات بلاستيكية توضع على مقابس الكهرباء (<span class="en-code text-slate-200">electrical sockets</span>) لحماية الأطفال الصغار من خطر الصعق الكهربائي (<span class="en-code text-slate-200">electrocution</span>).</p>
+          </div>
+          <div class="bg-slate-950/70 p-4 rounded-2xl border border-slate-800 space-y-1.5">
+            <b class="text-emerald-300 text-sm block">Safety Catches (مزالج الأدراج)</b>
+            <p class="text-slate-300 leading-relaxed">أقفال ومزالج أمان تثبت على أدراج وخزائن المطبخ لمنع وصول الأطفال للأشياء الحادة أو المنظفات المنزلية.</p>
+          </div>
+          <div class="bg-slate-950/70 p-4 rounded-2xl border border-slate-800 space-y-1.5">
+            <b class="text-emerald-300 text-sm block">Safety Gate &amp; Guard Rail</b>
+            <p class="text-slate-300 leading-relaxed">بوابة الأمان (<span class="en-code text-slate-200">safety gate</span>) تركب على رأس الدرج لحماية الأطفال من السقوط، وحاجز الأمان (<span class="en-code text-slate-200">guard rail</span>) يحيط بحمام السباحة.</p>
+          </div>
+        </div>
+
+        <div class="p-4 bg-slate-950/70 rounded-2xl border border-slate-800 text-xs grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="space-y-1.5">
+            <b class="text-slate-200 block mb-1">المفاهيم السكنية والفروق الجغرافية:</b>
+            <p>• <b>Suburbs (الضواحي):</b> أحياء سكنية هادئة خارج مركز المدينة تتميز بمساحات أكبر وخضرة.</p>
+            <p>• <b>Outskirts (الأطراف):</b> أقصى حواف وأطراف المدينة وأبعد نقطة عن المركز التجاري.</p>
+            <p>• <b>Terraced house:</b> منازل متطابقة متلاصقة تشترك في الجدران الجانبية في صف كامل.</p>
+            <p>• <b>Lodging:</b> غرفة مؤجرة داخل منزل يدفع المستأجر إيجاراً شهرياً مقابل السكن فيها.</p>
+          </div>
+          <div class="space-y-1.5">
+            <b class="text-slate-200 block mb-1">المصطلحات الطارئة والوظيفية:</b>
+            <p>• <b>Scald:</b> حرق شديد مؤلم ناتج عن انسكاب ماء مغلي أو سوائل ساخنة على الجلد.</p>
+            <p>• <b>Evicted:</b> مطرود ومُخلى من العين المؤجرة بحكم قانوني لعدم سداد الإيجار للمالك (<span class="en-code text-slate-300">landlord</span>).</p>
+            <p>• <b>Caterer:</b> متعهد الحفلات والمناسبات الذي يتولى تحضير وتقديم الأطعمة والمشروبات.</p>
+            <p>• <b>Intact:</b> سليم وبحالة ممتازة ولم يتهدم رغم تعرضه لعواصف قوية.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Master Phrasal Verbs Matrix -->
+      <div class="bg-slate-900/60 border border-slate-800/90 rounded-3xl p-6 sm:p-8 space-y-6">
+        <h3 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+          <i class="fa-solid fa-code-fork text-indigo-400"></i>
+          <span class="txt-ar">الموسوعة الشاملة للأفعال الاصطلاحية (Phrasal Verbs Matrix)</span>
+          <span class="txt-en hidden">Master Phrasal Verbs Breakdown</span>
+        </h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+          <!-- Break & Come -->
+          <div class="bg-slate-950/70 p-5 rounded-2xl border border-slate-800 space-y-3">
+            <span class="text-indigo-400 font-bold text-sm block">عائلات Break &amp; Come بالتفصيل والسياق:</span>
+            
+            <p>• <b class="text-white">Break into:</b> يقتحم مكاناً عنوة وبكسر الأبواب بهدف السرقة:
+            <br><span class="en-code text-emerald-300 mt-1">Burglars broke into our house and stole the jewelry.</span></p>
+            
+            <p>• <b class="text-white">Break out:</b> يندلع فجأة (للحرائق، الحروب، النزاعات، أو الأوبئة):
+            <br><span class="en-code text-emerald-300 mt-1">A violent fire broke out on the second floor.</span></p>
+            
+            <p>• <b class="text-white">Break up:</b> تنفض الجلسة أو تنتهي الدراسة وتبدأ عطلة المدارس الصيفية:
+            <br><span class="en-code text-emerald-300 mt-1">Schools break up for summer holidays tomorrow.</span></p>
+            
+            <p>• <b class="text-white">Break off:</b> يقطع وينهي فجأة علاقات دبلوماسية أو محادثات سلام:
+            <br><span class="en-code text-emerald-300 mt-1">The two countries broke off diplomatic relations.</span></p>
+            
+            <p>• <b class="text-white">Come into:</b> يرث أموالاً أو ثروة طائلة بعد وفاة أحد الأقارب:
+            <br><span class="en-code text-emerald-300 mt-1">She came into a lot of money when her grandfather died.</span></p>
+            
+            <p>• <b class="text-white">Come down with:</b> يُصاب بعدوى مرضية وتبدأ عليه أعراضها:
+            <br><span class="en-code text-emerald-300 mt-1">Jim has come down with the flu and is resting in bed.</span></p>
+            
+            <p>• <b class="text-white">Come across:</b> يصادف شخصاً أو يجد مقالاً بالصدفة البحتة دون تخطيط:
+            <br><span class="en-code text-emerald-300 mt-1">I came across an old article about my high school teacher.</span></p>
+            
+            <p>• <b class="text-white">Come round:</b> يأتي لزيارة قصيرة في المنزل لتناول طعام أو الحديث:
+            <br><span class="en-code text-emerald-300 mt-1">She asked Rick and Claire to come round for dinner.</span></p>
+            
+            <p>• <b class="text-white">Come out:</b> يطرح كتاب أو رواية أو ألبوم موسيقي جديد في الأسواق للجمهور:
+            <br><span class="en-code text-emerald-300 mt-1">The author's new novel is coming out next week.</span></p>
+            
+            <p>• <b class="text-white">Come up with:</b> يبتكر وينتج فكرة بارعة أو حلاً حاسماً لمشكلة معقدة:
+            <br><span class="en-code text-emerald-300 mt-1">Liz has come up with an excellent solution to the dilemma.</span></p>
+          </div>
+
+          <!-- Carry & Bring & Idioms -->
+          <div class="bg-slate-950/70 p-5 rounded-2xl border border-slate-800 space-y-3">
+            <span class="text-emerald-400 font-bold text-sm block">عائلات Carry &amp; Bring والتعبيرات الاصطلاحية:</span>
+            
+            <p>• <b class="text-white">Carry out:</b> ينفذ ويجري تجارب معملية أو أبحاثاً علمية أو اختبارات:
+            <br><span class="en-code text-emerald-300 mt-1">Doctors will carry out more clinical tests.</span></p>
+            
+            <p>• <b class="text-white">Carry away:</b> ينجرف وراء الحماس لدرجة فقدان السيطرة على النفس:
+            <br><span class="en-code text-emerald-300 mt-1">The fans got carried away when their team scored.</span></p>
+            
+            <p>• <b class="text-white">Carry on:</b> يواصل ويستمر في العمل أو إدارة المشروع بعد والده:
+            <br><span class="en-code text-emerald-300 mt-1">Jason is going to carry on the business.</span></p>
+            
+            <p>• <b class="text-white">Carry off:</b> ينجح في إلقاء خطاب أو إتمام مهمة صعبة باقتدار وجدارة:
+            <br><span class="en-code text-emerald-300 mt-1">Danny carried his speech off perfectly.</span></p>
+            
+            <p>• <b class="text-white">Bring up:</b> يربي طفلاً ويعتني به أخلاقياً ومادياً حتى يكبر:
+            <br><span class="en-code text-emerald-300 mt-1">She was brought up by her loving uncle.</span></p>
+            
+            <p>• <b class="text-white">Bring out:</b> ينتج ويطرح ألبوماً أو مؤلفاً جديداً للبيع:
+            <br><span class="en-code text-emerald-300 mt-1">The band have just brought out their new music album.</span></p>
+            
+            <p>• <b class="text-white">Bring back:</b> يسترجع ويحيي ذكريات قديمة من الماضي:
+            <br><span class="en-code text-emerald-300 mt-1">Visiting my hometown brings back precious memories.</span></p>
+
+            <div class="p-3 bg-slate-900 rounded-xl border border-slate-800 space-y-1.5 text-slate-300 mt-2">
+              <b class="text-amber-300 block">التعبيرات الاصطلاحية وحروف الجر (Prepositions):</b>
+              <p>• <b>White lie:</b> كذبة بيضاء بسيطة لتجنب جرح مشاعر شخص ما.</p>
+              <p>• <b>Once in a blue moon:</b> نادر الحدوث جداً وعلى فترات متباعدة للغاية.</p>
+              <p>• <b>Green fingers:</b> موهبة فطرية وبراعة في زراعة النباتات وتنسيق الحدائق.</p>
+              <p>• <b>Head in the clouds:</b> شخص خيالي شارد الذهن دائم التشتت عن الواقع.</p>
+              <p>• <b>Hot under the collar:</b> مستشيط غضباً ومنفعل بشدة.</p>
+              <p>• <b>Out and about:</b> معافى ونشيط ويتحرك خارج المنزل بعد فترة مرض.</p>
+              <p>• <b>Accused of:</b> متهم بـ (يليها اسم أو فعل فيه ing).</p>
+              <p>• <b>Charged with:</b> موجه إليه اتهام رسمي قضائياً من المحكمة.</p>
+              <p>• <b>Accustomed to:</b> معتاد على (يليها اسم أو فعل فيه ing).</p>
+              <p>• <b>Dismissed from:</b> مفصول ومطرود من وظيفته.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- 3. THE 4 TYPES OF COMMAS & ESSAY MECHANICS                    -->
+    <!-- ============================================================== -->
+    <section id="sec-commas" class="tab-pane hidden space-y-8">
+      <div class="flex items-center justify-between border-b border-slate-800/80 pb-3 flex-wrap gap-2">
+        <div>
+          <span class="text-amber-400 text-xs font-semibold uppercase tracking-wider font-mono">Punctuation &amp; Academic Integrity • Exhaustive Analysis</span>
+          <h2 class="text-xl sm:text-2xl font-black text-slate-100 mt-1">
+            <span class="txt-ar">٣. أنواع الفواصل الأربعة، أساليب الـ Hook، والسرقة الأدبية (Plagiarism &amp; Citation)</span>
+            <span class="txt-en hidden">3. The 4 Types of Commas, Hook Strategies, Plagiarism &amp; Citation</span>
+          </h2>
+        </div>
+        <button onclick="speakText(document.getElementById('sec-commas').innerText)" class="px-3 py-1.5 rounded-lg bg-slate-800/70 hover:bg-slate-800 text-xs font-semibold text-slate-300 flex items-center gap-1.5 transition">
+          <i class="fa-solid fa-volume-high text-amber-400"></i>
+          <span class="txt-ar">استمع للقسم</span><span class="txt-en hidden">Listen Section</span>
+        </button>
+      </div>
+
+      <!-- The 4 Commas Grid with Structural Formulas -->
+      <div class="bg-slate-900/60 border border-slate-800/90 rounded-3xl p-6 sm:p-8 space-y-6">
+        <h3 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+          <i class="fa-solid fa-quote-left text-amber-400"></i>
+          <span class="txt-ar">أنواع الفواصل الأربعة وقواعدها النحوية الصارمة (The 4 Functional Commas)</span>
+          <span class="txt-en hidden">The 4 Functional Comma Rules Explained</span>
+        </h3>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs">
+          <!-- Introducer -->
+          <div class="bg-slate-950/70 p-4 rounded-2xl border border-slate-800 space-y-2">
+            <b class="text-sky-300 text-sm block">1. Introducer Comma (فاصلة التمهيد)</b>
+            <p class="text-slate-300 leading-relaxed">
+              توضع مباشرة بعد العبارات أو الكلمات التمهيدية في بداية الجملة (ظروف، جمل شرطية، أو عبارات جر ومجرور) لتفصلها عن الجملة المستقلة الرئيسية (<span class="en-code text-slate-200">Independent Clause</span>).
+            </p>
+            <div class="p-2.5 bg-slate-900 rounded-xl text-slate-300 font-mono text-[11px] space-y-1">
+              <div>• <b>بعد جملة تابعة:</b> <span class="en-code text-slate-200">"When the rain stopped<b class="text-sky-400">,</b> we went outside."</span></div>
+              <div>• <b>بعد ظرف تمهيدي:</b> <span class="en-code text-slate-200">"Suddenly<b class="text-sky-400">,</b> the alarm rang."</span></div>
+              <div>• <b>شبه جملة جر:</b> <span class="en-code text-slate-200">"In ancient Egypt<b class="text-sky-400">,</b> scholars loved reading."</span></div>
+            </div>
+          </div>
+
+          <!-- Coordinator -->
+          <div class="bg-slate-950/70 p-4 rounded-2xl border border-slate-800 space-y-2">
+            <b class="text-emerald-300 text-sm block">2. Coordinator Comma (فاصلة الربط)</b>
+            <p class="text-slate-300 leading-relaxed">
+              توضع إجبارياً قبل روابط التنسيق السبعة (<span class="en-code text-emerald-400 font-bold">FANBOYS</span>: for, and, nor, but, or, yet, so) عند ربط <b>جملتين مستقلتين كاملتين</b> (كل جملة لها فاعل وفعل).
+            </p>
+            <div class="p-2.5 bg-slate-900 rounded-xl text-slate-300 font-mono text-[11px] space-y-1">
+              <div>• <span class="en-code text-slate-200">"Santiago was unlucky<b class="text-emerald-400">,</b> but he never gave up."</span></div>
+              <div>• <span class="en-code text-slate-200">"The boy loved the old man<b class="text-emerald-400">,</b> so he brought him food."</span></div>
+              <p class="text-slate-400 text-[10px] pt-1">⚠️ <b>تنبيه:</b> إذا لم يأتِ فاعل بعد الرابط لا نضع فاصلة: <span class="en-code text-slate-300">"He went home and slept."</span></p>
+            </div>
+          </div>
+
+          <!-- Inserter -->
+          <div class="bg-slate-950/70 p-4 rounded-2xl border border-slate-800 space-y-2">
+            <b class="text-amber-300 text-sm block">3. Inserter Comma (فاصلة الاعتراض)</b>
+            <p class="text-slate-300 leading-relaxed">
+              تُستخدم دائماً في أزواج (فاصلة قبل وفاصلة بعد) لحصر معلومة إضافية اعتراضية (<span class="en-code text-slate-200">Non-essential element</span>) أو بدل؛ إذا حذفت لا يختل أصل الجملة.
+            </p>
+            <div class="p-2.5 bg-slate-900 rounded-xl text-slate-300 font-mono text-[11px] space-y-1">
+              <div>• <span class="en-code text-slate-200">"Manolin<b class="text-amber-400">,</b> the young loyal boy<b class="text-amber-400">,</b> helped Santiago."</span></div>
+              <div>• <span class="en-code text-slate-200">"My skiff<b class="text-amber-400">,</b> which was very small<b class="text-amber-400">,</b> sailed far."</span></div>
+            </div>
+          </div>
+
+          <!-- Tag -->
+          <div class="bg-slate-950/70 p-4 rounded-2xl border border-slate-800 space-y-2">
+            <b class="text-rose-300 text-sm block">4. Tag Comma (الفاصلة التذييلية)</b>
+            <p class="text-slate-300 leading-relaxed">
+              توضع قبل عنصر مضاف في نهاية الجملة؛ مثل السؤال المذيل (<span class="en-code text-slate-200">Tag Question</span>)، أو المنادى في نهاية الكلام، أو الكلمات التوكيدية الملحقة.
+            </p>
+            <div class="p-2.5 bg-slate-900 rounded-xl text-slate-300 font-mono text-[11px] space-y-1">
+              <div>• <b>السؤال المذيل:</b> <span class="en-code text-slate-200">"You haven't caught any fish<b class="text-rose-400">,</b> have you?"</span></div>
+              <div>• <b>المنادى المتأخر:</b> <span class="en-code text-slate-200">"Please pass me the net<b class="text-rose-400">,</b> Manolin."</span></div>
+              <div>• <b>التأكيد الختامي:</b> <span class="en-code text-slate-200">"He was an expert fisherman<b class="text-rose-400">,</b> indeed."</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hook, Plagiarism & Citation (Deep In-Depth Analysis) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs">
+        
+        <!-- Hook -->
+        <div class="bg-slate-900/60 border border-slate-800/90 rounded-3xl p-5 sm:p-6 space-y-3">
+          <span class="text-sky-400 font-semibold font-mono">Academic Writing Skill</span>
+          <h4 class="text-base font-bold text-slate-100">الـ Hook (الجملة الافتتاحية الجاذبة)</h4>
+          <p class="text-slate-300 leading-relaxed">
+            الـ Hook هو أول جملة تُفتتح بها مقدمة المقال، وتكمن أهميته في إثارة فضول القارئ ودفعه بشغف لإكمال القراءة بدلاً من الملل.
+          </p>
+          <div class="bg-slate-950/70 p-3.5 rounded-2xl border border-slate-800 space-y-2 text-slate-300">
+            <p>• <b>١. السؤال البلاغي (Rhetorical Question):</b> سؤال عميق يثير التفكير:
+            <br><span class="en-code text-emerald-300 mt-1">"Can a single word start a catastrophic war?"</span></p>
+            <p>• <b>٢. الحقيقة الصادمة (Surprising Fact / Stat):</b> معلومة رقمية غير متوقعة:
+            <br><span class="en-code text-emerald-300 mt-1">"Over 90% of Egyptian trade relied on the Nile."</span></p>
+            <p>• <b>٣. الاقتباس الملهم (Inspiring Quote):</b> مقولة بليغة لمفكر أو مثل شهير:
+            <br><span class="en-code text-emerald-300 mt-1">"A smooth sea never made a skilled sailor."</span></p>
+            <p>• <b>٤. الموقف الحسي (Vivid Scene / Anecdote):</b> وصف مشهد غني بالحواس الخمس:
+            <br><span class="en-code text-emerald-300 mt-1">"The smoke was thick and suffocating."</span></p>
+          </div>
+        </div>
+
+        <!-- Plagiarism -->
+        <div class="bg-slate-900/60 border border-slate-800/90 rounded-3xl p-5 sm:p-6 space-y-3">
+          <span class="text-rose-400 font-semibold font-mono">Academic Ethics &amp; Integrity</span>
+          <h4 class="text-base font-bold text-slate-100">الـ Plagiarism (الانتحال والسرقة العلمية)</h4>
+          <p class="text-slate-300 leading-relaxed">
+            هو استخدام كلمات، أبحاث، صياغات، أو أفكار شخص آخر ونسبتها لنفسك دون الإشارة الواضحة للمؤلف الحقيقي والمصدر الأصلي.
+          </p>
+          <div class="bg-slate-950/70 p-3.5 rounded-2xl border border-slate-800 space-y-2 text-slate-300">
+            <p>• <b>النسخ واللصق الحرفي (Direct Copy-Paste):</b> نقل نصوص كما هي دون علامات تنصيص ودون توثيق صاحبها.</p>
+            <p>• <b>إعادة الصياغة الخادعة (Patchwriting):</b> تغيير بعض المرادفات البسيطة مع الاحتفاظ بنفس تركيب الجمل وبنائها الأصلي دون توثيق.</p>
+            <p>• <b>الانتحال الذاتي (Self-Plagiarism):</b> تقديم واجب قديم أنجزته لمادة سابقة على أنه بحث جديد تماماً.</p>
+            <p class="text-emerald-300 font-semibold">• <b>طرق تجنبه:</b> استخدام علامات الاقتباس <span class="en-code text-white">"..."</span> للكلام المنقول حرفياً، وإعادة الصياغة بأسلوبك مع ذكر المصدر دوماً.</p>
+          </div>
+        </div>
+
+        <!-- Citation -->
+        <div class="bg-slate-900/60 border border-slate-800/90 rounded-3xl p-5 sm:p-6 space-y-3">
+          <span class="text-emerald-400 font-semibold font-mono">Referencing Standards</span>
+          <h4 class="text-base font-bold text-slate-100">الـ Citation (التوثيق والاستشهاد المرجعي)</h4>
+          <p class="text-slate-300 leading-relaxed">
+            هو الأسلوب العلمي المعياري للاعتراف بمصادر المعلومات والأدلة المستخدمة، وهو ما يمنح البحث قوة ومصداقية أكاديمية تحمي الباحث قانونياً وأخلاقياً.
+          </p>
+          <div class="bg-slate-950/70 p-3.5 rounded-2xl border border-slate-800 space-y-2 text-slate-300">
+            <p>• <b>التوثيق داخل النص (In-text Citation):</b> يُذكر لقب المؤلف وسنة النشر داخل القوسين بجوار الجملة المقتبسة:
+            <br><span class="en-code text-emerald-300 mt-1">"Man is not made for defeat" (Hemingway, 1952).</span></p>
+            <p>• <b>قائمة المراجع الختامية (Reference List / Bibliography):</b> توضع في نهاية الورقة البحثية وتتضمن البيانات الكاملة للمرجع (اسم المؤلف، سنة النشر، عنوان الكتاب، ودار النشر أو الرابط الإلكتروني).</p>
+            <p>• <b>الأنظمة المعتمدة عالمياً:</b> نظام <span class="en-code text-white font-bold">APA</span> للعلوم ونظام <span class="en-code text-white font-bold">MLA</span> للآداب واللغات.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- 4. NOVEL: THE OLD MAN AND THE SEA (CH 1 & 2)                  -->
+    <!-- ============================================================== -->
+    <section id="sec-novel" class="tab-pane hidden space-y-8">
+      <div class="flex items-center justify-between border-b border-slate-800/80 pb-3 flex-wrap gap-2">
+        <div>
+          <span class="text-cyan-400 text-xs font-semibold uppercase tracking-wider font-mono">Literature Mastery • Complete Chapters Breakdown</span>
+          <h2 class="text-xl sm:text-2xl font-black text-slate-100 mt-1">
+            <span class="txt-ar">٤. رواية العجوز والبحر: الفصلان الأول والثاني والتحليل النقدي الموسع</span>
+            <span class="txt-en hidden">4. The Old Man and the Sea: Chapters 1 &amp; 2 Exhaustive Analysis</span>
+          </h2>
+        </div>
+        <button onclick="speakText(document.getElementById('sec-novel').innerText)" class="px-3 py-1.5 rounded-lg bg-slate-800/70 hover:bg-slate-800 text-xs font-semibold text-slate-300 flex items-center gap-1.5 transition">
+          <i class="fa-solid fa-volume-high text-cyan-400"></i>
+          <span class="txt-ar">استمع للقسم</span><span class="txt-en hidden">Listen Section</span>
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Chapter 1 -->
+        <div class="bg-slate-900/60 border border-slate-800/90 rounded-3xl p-6 sm:p-7 space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 class="text-lg sm:text-xl font-bold text-cyan-300">Chapter 1: The 84 Unlucky Days (المحنة ووفاء مانولين)</h3>
+            <span class="text-xs px-2.5 py-0.5 rounded-full bg-cyan-950/60 text-cyan-300 border border-cyan-800/50 font-mono">Salao &amp; Manolin</span>
+          </div>
+
+          <div class="space-y-3 text-xs leading-relaxed text-slate-300">
+            <p>• <b>محنة سانتياغو ونحس الـ 84 يوماً:</b> سانتياغو صياد كوبي عجوز مكث <b>84 يوماً متواصلة</b> في مياه تيار الخليج (<span class="en-code text-slate-200">Gulf Stream</span>) دون أن يصيد سمكة واحدة. وأصبح الصيادون في القرية ينظرون إليه بوصفه <span class="en-code text-amber-300 font-bold">"salao"</span> (أسوأ درجات سوء الحظ والنحس المطلق).</p>
+            <p>• <b>وفاء الصبي مانولين (Manolin's Devotion):</b> رافق الصبي مانولين سانتياغو في أول أربعين يوماً، لكن والديه أجبراه على تركه والالتحاق بقارب آخر أكثر حظاً يجلب الأسماك. ورغم ذلك، ظل الصبي وفياً يحمل الشباك والأشرعة المرقعة بأكياس الدقيق، ويشتري له الطعام والقهوة وطعوم السردين، معتبراً سانتياغو أفضل صياد ومعلمه الأكبر.</p>
+            <p>• <b>وصف سانتياغو وعيناه:</b> كان كل شيء فيه قديماً ومهترئاً، وجهه ملطخ ببقع الشمس وتجاعيد الزمن العميقة، <b>ما عدا عينيه</b>؛ كانتا بلون البحر وتشعّان بالأمل والبهجة وعدم الاستسلام للهزيمة.</p>
+            <p>• <b>الكوخ وحوار البيسبول:</b> يعيش سانتياغو في كوخ فقير من أوراق النخيل، وينام على سرير بجرائد قديمة، ويتحدث بشغف مع مانولين عن دوري البيسبول الأمريكي وأخباره وبطله الملهم <b>جو ديماجيو (Joe DiMaggio)</b> لاعب فريق نيويورك يانكيز الذي يتغلب على آلام مهماز عظمة الكعب ويلعب بشجاعة. ويعلن سانتياغو بعزيمة صامتة أنه سيبحر في اليوم الخامس والثمانين (85) بعيداً في الأعماق.</p>
+          </div>
+        </div>
+
+        <!-- Chapter 2 -->
+        <div class="bg-slate-900/60 border border-slate-800/90 rounded-3xl p-6 sm:p-7 space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 class="text-lg sm:text-xl font-bold text-emerald-400">Chapter 2: Setting Sail into the Deep (أحلام الأسود والإبحار)</h3>
+            <span class="text-xs px-2.5 py-0.5 rounded-full bg-emerald-950/60 text-emerald-300 border border-emerald-800/50 font-mono">Lions &amp; La Mar</span>
+          </div>
+
+          <div class="space-y-3 text-xs leading-relaxed text-slate-300">
+            <p>• <b>أحلام الأسود الإفريقية (The Lions on the Beach):</b> قبل نومه، لم يعد سانتياغو يحلم بالعواصف أو النساء أو المعارك أو الصيد، بل كان يحلم فقط بـ <b>الأسود الإفريقية</b> تلعب على الشواطئ الذهبية في شبابه، وهي رمز خالد للقوة والشباب والانسجام والحرية.</p>
+            <p>• <b>الرحيل في الظلام:</b> استيقظ العجوز قبل الفجر، وساعده الصبي في حمل أدوات الصيد وتناول القهوة، وودعه الصبي على الشاطئ. انطلق سانتياغو بمفرده في الظلام مجدفاً بثبات في مياه تيار الخليج العميقة.</p>
+            <p>• <b>فلسفة البحر (La Mar vs. El Mar):</b> كان سانتياغو يفكر دائماً في البحر كأنثى رقيقة ويسميه بالإسبانية <span class="en-code text-cyan-300 font-bold">"La Mar"</span> التي تمنح الخير أو تحجبه بدافع المحبة والطبيعة، على عكس الصيادين الشباب الذين ينظرون إليه كمنافس أو عدو تجاري ويسمونه <span class="en-code text-rose-400 font-bold">"El Mar"</span> بمذكر عدائي.</p>
+            <p>• <b>دقة إسقاط الطعوم:</b> أنزل سانتياغو خيوطه بدقة متناهية على أعماق متباينة (40 و75 و100 و125 قامة)، مؤمناً بالقاعدة الفلسفية: <i>"من الأفضل أن أكون دقيقاً على أن أكون محظوظاً، فعندما يأتي الحظ سأكون مستعداً"</i>. وقبل الظهر، شعر بحركة قوية تسحب الطعم في القاع لتبدأ معركة سمكة المارلين.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- 5. INTERACTIVE EXPANDED MOCK EXAM (77 AUTHENTIC QUESTIONS)     -->
+    <!-- ============================================================== -->
+    <section id="sec-quiz" class="tab-pane hidden space-y-6">
+      <div class="flex items-center justify-between border-b border-slate-800/80 pb-3 flex-wrap gap-3">
+        <div>
+          <span class="text-rose-400 text-xs font-semibold uppercase tracking-wider font-mono">Comprehensive Exam Simulator</span>
+          <h3 class="text-xl sm:text-2xl font-black text-slate-100 mt-1">
+            <span class="txt-ar">٥. بنك الأسئلة الشامل الموسع (٧٧ سؤالاً حقيقياً من أوراق المراجعة والوزارة)</span>
+            <span class="txt-en hidden">5. Comprehensive Mega Test Bank (77 Authentic Exam Questions)</span>
+          </h3>
+        </div>
+        <div class="flex items-center gap-3">
+          <select id="quizFilter" onchange="filterQuiz()" class="no-print bg-slate-900 border border-slate-700/80 text-xs text-slate-200 rounded-xl px-3 py-2 font-semibold focus:outline-none focus:border-indigo-500">
+            <option value="all">كل الأسئلة (All 77 Questions)</option>
+            <option value="upstream_vocab">مفردات السكن والمجتمع (Upstream Vocab)</option>
+            <option value="phrasals">الأفعال الاصطلاحية (Phrasal Verbs)</option>
+            <option value="idioms">التعبيرات وحروف الجر (Idioms &amp; Prepositions)</option>
+            <option value="grammar">القواعد والفواصل (Grammar &amp; Commas)</option>
+            <option value="novel">القصة (The Old Man and the Sea)</option>
+          </select>
+          <div id="quizBadge" class="hidden px-4 py-1.5 bg-indigo-950/60 text-indigo-300 border border-indigo-700/50 rounded-xl font-bold text-xs font-mono">
+            Score: <span id="quizScore">0</span> / <span id="quizTotal">0</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="quizContainer" class="space-y-4"></div>
+
+      <div class="flex items-center justify-between pt-6 border-t border-slate-800/80 no-print flex-wrap gap-3">
+        <button onclick="submitExam()" class="px-8 py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 via-indigo-500 to-sky-500 hover:opacity-90 text-white font-bold shadow-lg shadow-indigo-500/20 transition text-xs sm:text-sm flex items-center gap-2">
+          <i class="fa-solid fa-check-double"></i>
+          <span class="txt-ar">تصحيح الاختبار بالكامل وعرض الشرح</span>
+          <span class="txt-en hidden">Submit All &amp; View Rationales</span>
+        </button>
+        <button onclick="renderExam()" class="px-5 py-3 rounded-xl bg-slate-800/80 hover:bg-slate-800 text-slate-300 font-semibold text-xs transition border border-slate-700/60">
+          <i class="fa-solid fa-rotate-right ml-1"></i>
+          <span class="txt-ar">إعادة الاختبار</span>
+          <span class="txt-en hidden">Reset Exam</span>
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer with Required Credits -->
+  <footer class="mt-16 border-t border-slate-800/80 bg-[#0f172a] py-10 text-slate-400 text-xs sm:text-sm text-center no-print">
+    <div class="max-w-4xl mx-auto px-4 space-y-4">
+      <div class="flex flex-wrap items-center justify-center gap-3 font-semibold text-xs">
+        <span class="px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-200">
+          <span class="txt-ar">المعلومات مجمعة بواسطة: <strong class="text-sky-400">مس رنا خالد</strong></span>
+          <span class="txt-en hidden">Information gathered by: <strong class="text-sky-400">Miss Rana Khaled</strong></span>
+        </span>
+        <span class="px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-200">
+          <span class="txt-ar">الموقع معمول بواسطة: <strong class="text-indigo-400">عبدالرحمن عبدالله</strong></span>
+          <span class="txt-en hidden">Website made by: <strong class="text-indigo-400">Abdelrahman Abdallah</strong></span>
+        </span>
+        <span class="px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-200">
+          <span class="txt-ar">برعاية: <strong class="text-amber-400">نموذج جيميناي (Gemini)</strong></span>
+          <span class="txt-en hidden">Powered by: <strong class="text-amber-400">Gemini Pro</strong></span>
+        </span>
+      </div>
+      <p class="text-slate-500 text-xs">G10 English Unified Revision Hub • Ministry &amp; Upstream Academic Suite</p>
+    </div>
+  </footer>
+
+  <!-- Application Logic Scripts -->
+  <script>
+    let currentLanguage = 'ar';
+
+    function toggleLanguage() {
+      currentLanguage = currentLanguage === 'ar' ? 'en' : 'ar';
+      applyLanguage(currentLanguage);
+    }
+
+    function applyLanguage(lang) {
+      const html = document.documentElement;
+      const langBtnText = document.getElementById('langBtnText');
+
+      if (lang === 'en') {
+        html.setAttribute('lang', 'en');
+        html.setAttribute('dir', 'ltr');
+        if (langBtnText) langBtnText.textContent = 'العربية';
+        document.querySelectorAll('.txt-ar').forEach(el => el.classList.add('hidden'));
+        document.querySelectorAll('.txt-en').forEach(el => el.classList.remove('hidden'));
+      } else {
+        html.setAttribute('lang', 'ar');
+        html.setAttribute('dir', 'rtl');
+        if (langBtnText) langBtnText.textContent = 'English';
+        document.querySelectorAll('.txt-ar').forEach(el => el.classList.remove('hidden'));
+        document.querySelectorAll('.txt-en').forEach(el => el.classList.add('hidden'));
+      }
+
+      renderExam();
+    }
+
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-pane').forEach(el => el.classList.add('hidden'));
+      const target = document.getElementById('sec-' + tabId);
+      if (target) {
+        target.classList.remove('hidden');
+        window.scrollTo({ top: target.offsetTop - 85, behavior: 'smooth' });
+      }
+
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        if (btn.dataset.tab === tabId) {
+          btn.className = "tab-btn px-3.5 py-2 rounded-xl text-sky-300 bg-slate-800/90 border border-slate-700 transition flex items-center gap-1.5 shadow-sm";
+        } else {
+          btn.className = "tab-btn px-3.5 py-2 rounded-xl text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 transition flex items-center gap-1.5";
+        }
+      });
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toastMsg');
+      if (!toast) return;
+      if (toastMsg) toastMsg.textContent = msg;
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+      setTimeout(() => {
+        toast.classList.add('translate-y-24', 'opacity-0');
+        toast.classList.remove('translate-y-0', 'opacity-100');
+      }, 3000);
+    }
+
+    function speakText(text) {
+      if (!window.speechSynthesis) {
+        showToast('متصفحك لا يدعم القراءة الصوتية');
+        return;
+      }
+      window.speechSynthesis.cancel();
+      const cleanText = text.replace(/[\u0600-\u06FF]/g, '').trim();
+      const utterance = new SpeechSynthesisUtterance(cleanText.substring(0, 300));
+      utterance.lang = 'en-US';
+      utterance.rate = 0.95;
+      window.speechSynthesis.speak(utterance);
+      showToast('جاري القراءة الصوتية بالإنجليزية...');
+    }
+
+    // Scroll Progress
+    window.addEventListener('scroll', () => {
+      const top = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      document.getElementById('scrollProgress').style.transform = `scaleX(${top / height})`;
+    });
+
+    // ==============================================================
+    // 77 COMPLETE QUESTIONS FROM THE USER'S ATTACHED REVISION FILES
+    // ==============================================================
+    const examQuestions = [
+      // === UPSTREAM VOCABULARY (1 - 46) ===
+      {
+        cat: "upstream_vocab",
+        q_ar: "١. Dad is outside _______ the lawn; go and see if he needs any help.",
+        q_en: "1. Dad is outside _______ the lawn; go and see if he needs any help.",
+        options_ar: ["mopping", "mowing", "spoiling", "installing"],
+        options_en: ["mopping", "mowing", "spoiling", "installing"],
+        correct: 1,
+        exp_ar: "mowing the lawn: قص عشب الحديقة بماكينة الجز.",
+        exp_en: "Mowing the lawn refers to cutting the grass with a lawnmower."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "٢. There's something wrong with the central heating; we'd better call our _______ and let him know.",
+        q_en: "2. There's something wrong with the central heating; we'd better call our _______ and let him know.",
+        options_ar: ["estate agent", "landlord", "caterer", "landmark"],
+        options_en: ["estate agent", "landlord", "caterer", "landmark"],
+        correct: 1,
+        exp_ar: "landlord: صاحب البيت أو العقار المؤجّر.",
+        exp_en: "A landlord is the property owner from whom one rents."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "٣. John and Chris bought a really _______ flat; it's got four bedrooms, an attic and a guest room.",
+        q_en: "3. John and Chris bought a really _______ flat; it's got four bedrooms, an attic and a guest room.",
+        options_ar: ["secure", "tiny", "spacious", "cramped"],
+        options_en: ["secure", "tiny", "spacious", "cramped"],
+        correct: 2,
+        exp_ar: "spacious: واسع وشاسع المساحة.",
+        exp_en: "Spacious means having ample and abundant room."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "٤. Sharon is quite _______; she keeps to herself and dislikes socializing.",
+        q_en: "4. Sharon is quite _______; she keeps to herself and dislikes socializing.",
+        options_ar: ["confident", "conservative", "active", "withdrawn"],
+        options_en: ["confident", "conservative", "active", "withdrawn"],
+        correct: 3,
+        exp_ar: "withdrawn: منطوٍ على نفسه ولا يحب الاختلاط بالآخرين.",
+        exp_en: "Withdrawn means reserved, introverted, and avoiding social contact."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "٥. Living in the countryside doesn't really _______ to me.",
+        q_en: "5. Living in the countryside doesn't really _______ to me.",
+        options_ar: ["appeal", "approve", "apply", "convince"],
+        options_en: ["appeal", "approve", "apply", "convince"],
+        correct: 0,
+        exp_ar: "appeal to me: يروق لي أو يعجبني.",
+        exp_en: "'Appeal to' means to be attractive or interesting to someone."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "٦. I'd love to live in the _______ but I can't afford it, I'm afraid.",
+        q_en: "6. I'd love to live in the _______ but I can't afford it, I'm afraid.",
+        options_ar: ["stilts", "storehouses", "suburbs", "storeys"],
+        options_en: ["stilts", "storehouses", "suburbs", "storeys"],
+        correct: 2,
+        exp_ar: "suburbs: ضواحي المدينة السكنية الهادئة.",
+        exp_en: "Suburbs are the residential districts outside a city centre."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "٧. My kids were really unhappy when we _______ of our old house, but now they like their new life.",
+        q_en: "7. My kids were really unhappy when we _______ of our old house, but now they like their new life.",
+        options_ar: ["moved out", "stood out", "set up", "abandoned"],
+        options_en: ["moved out", "stood out", "set up", "abandoned"],
+        correct: 0,
+        exp_ar: "moved out of: عزلنا وتركنا بيتنا القديم.",
+        exp_en: "'Moved out of' means stopped living in that house."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "٨. The lights have gone off in the whole neighborhood. I suppose it's another _______.",
+        q_en: "8. The lights have gone off in the whole neighborhood. I suppose it's another _______.",
+        options_ar: ["electrocution", "draught", "electrical socket", "power cut"],
+        options_en: ["electrocution", "draught", "electrical socket", "power cut"],
+        correct: 3,
+        exp_ar: "power cut: انقطاع التيار الكهربائي في المنطقة.",
+        exp_en: "A power cut is a sudden interruption in the electricity supply."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "٩. A _______ roof is made of straw or reeds.",
+        q_en: "9. A _______ roof is made of straw or reeds.",
+        options_ar: ["pitched", "tiled", "fiberglass", "thatched"],
+        options_en: ["pitched", "tiled", "fiberglass", "thatched"],
+        correct: 3,
+        exp_ar: "thatched roof: سقف مصنوع من القش والبوص.",
+        exp_en: "Thatched roofs are covered with straw, reeds, or dry vegetation."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "١٠. A _______ roof is a sloping roof for the rain and snow to fall off.",
+        q_en: "10. A _______ roof is a sloping roof for the rain and snow to fall off.",
+        options_ar: ["pitched", "tiled", "thatched", "cramped"],
+        options_en: ["pitched", "tiled", "thatched", "cramped"],
+        correct: 0,
+        exp_ar: "pitched roof: سقف مائل ليسهل انزلاق ماء المطر والثلج.",
+        exp_en: "A pitched roof is designed with sloped sides for precipitation run-off."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "١١. A _______ roof is covered with flat pieces of baked clay.",
+        q_en: "11. A _______ roof is covered with flat pieces of baked clay.",
+        options_ar: ["pitched", "tiled", "thatched", "cramped"],
+        options_en: ["pitched", "tiled", "thatched", "cramped"],
+        correct: 1,
+        exp_ar: "tiled roof: سقف مغطى ببلاط القرميد الفخاري المصنوع من الطين المحروق.",
+        exp_en: "Tiled roofs are overlaid with baked clay tiles."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "١٢. _______ is the exact antonym (opposite) of 'spacious'.",
+        q_en: "12. _______ is the exact antonym (opposite) of 'spacious'.",
+        options_ar: ["Crammed", "Crumbled", "Crumbed", "Cramped"],
+        options_en: ["Crammed", "Crumbled", "Crumbed", "Cramped"],
+        correct: 3,
+        exp_ar: "cramped: ضيق وخانق، عكس spacious (واسع).",
+        exp_en: "Cramped means uncomfortably small or crowded; antonym of spacious."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "١٣. _______ houses are joined together in a continuous row by side walls.",
+        q_en: "13. _______ houses are joined together in a continuous row by side walls.",
+        options_ar: ["Terraced", "Detached", "Semi-detached", "Isolated"],
+        options_en: ["Terraced", "Detached", "Semi-detached", "Isolated"],
+        correct: 0,
+        exp_ar: "terraced houses: منازل متلاصقة في صف واحد تشترك في الجدران الجانبية.",
+        exp_en: "Terraced houses are built in a continuous row with shared side walls."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "١٤. The Baron de Vere and his family lived in the castle's _______.",
+        q_en: "14. The Baron de Vere and his family lived in the castle's _______.",
+        options_ar: ["moat", "ditch", "hut", "keep"],
+        options_en: ["moat", "ditch", "hut", "keep"],
+        correct: 3,
+        exp_ar: "keep: الحصن أو البرج الداخلي المنيع في القلعة لسكن النبلاء.",
+        exp_en: "The keep is the innermost defensive fortress and residence in a medieval castle."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "١٥. A _______ is a deep, wide channel dug around a castle and filled with water to protect it.",
+        q_en: "15. A _______ is a deep, wide channel dug around a castle and filled with water to protect it.",
+        options_ar: ["bungalow", "stilt", "moat", "keep"],
+        options_en: ["bungalow", "stilt", "moat", "keep"],
+        correct: 2,
+        exp_ar: "moat: خندق مائي عميق محفور حول أسوار القلعة للدفاع عنها.",
+        exp_en: "A moat is a water-filled protective ditch encircling a fortress."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "١٦. A _______ can be pulled up to prevent entrance across the moat.",
+        q_en: "16. A _______ can be pulled up to prevent entrance across the moat.",
+        options_ar: ["moat", "keep", "drawbridge", "up bridge"],
+        options_en: ["moat", "keep", "drawbridge", "up bridge"],
+        correct: 2,
+        exp_ar: "drawbridge: جسر متحرك يمكن رفعه لمنع العبور.",
+        exp_en: "A drawbridge is a hinged bridge across a moat that can be raised."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "١٧. Even today, many people live in _______ conditions.",
+        q_en: "17. Even today, many people live in _______ conditions.",
+        options_ar: ["hush", "hearth", "harshly", "harsh"],
+        options_en: ["hush", "hearth", "harshly", "harsh"],
+        correct: 3,
+        exp_ar: "harsh conditions: ظروف معيشية قاسية وصعبة.",
+        exp_en: "Harsh conditions means severe, cruel, or difficult circumstances."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "١٨. Pine, fir and _______ trees were dotted around the alpine landscape.",
+        q_en: "18. Pine, fir and _______ trees were dotted around the alpine landscape.",
+        options_ar: ["spouse", "spruce", "spruced", "sprout"],
+        options_en: ["spouse", "spruce", "spruced", "sprout"],
+        correct: 1,
+        exp_ar: "spruce: شجر التنوب الصنوبري الشهير.",
+        exp_en: "Spruce is an evergreen coniferous tree typical of alpine landscapes."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "١٩. _______ is sneezing and itching caused by an allergic reaction to grass pollen.",
+        q_en: "19. _______ is sneezing and itching caused by an allergic reaction to grass pollen.",
+        options_ar: ["Heat stroke", "Stream cold", "Hay fever", "Scald"],
+        options_en: ["Heat stroke", "Stream cold", "Hay fever", "Scald"],
+        correct: 2,
+        exp_ar: "hay fever: حمى القش أو حساسية حبوب اللقاح التي تسبب العطس وحكة العينين.",
+        exp_en: "Hay fever is an allergic response to pollen causing sneezing and itching."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "٢٠. If you are very noticeable and prominent, then you stand _______.",
+        q_en: "20. If you are very noticeable and prominent, then you stand _______.",
+        options_ar: ["up", "in", "out", "off"],
+        options_en: ["up", "in", "out", "off"],
+        correct: 2,
+        exp_ar: "stand out: يبرز ويكون لافتاً للنظر جداً وسط الحشود.",
+        exp_en: "'Stand out' means to be distinctive, noticeable, or prominent."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "٢١. A/An _______ is an area of a town or city outside the central zone.",
+        q_en: "21. A/An _______ is an area of a town or city outside the central zone.",
+        options_ar: ["suburb", "outskirt", "isolated", "detached"],
+        options_en: ["suburb", "outskirt", "isolated", "detached"],
+        correct: 0,
+        exp_ar: "suburb: الضاحية السكنية الواقعة خارج المركز.",
+        exp_en: "A suburb is a residential district situated outside a city centre."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "٢٢. The _______ is the part of a town or city furthest from the centre.",
+        q_en: "22. The _______ is the part of a town or city furthest from the centre.",
+        options_ar: ["suburb", "outskirt", "residential area", "detached"],
+        options_en: ["suburb", "outskirt", "residential area", "detached"],
+        correct: 1,
+        exp_ar: "outskirt: الحواف والأطراف القصوى والأبعد للمدينة.",
+        exp_en: "The outskirts are the outer extremities furthest from the town centre."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "٢٣. The _______ was a large room with comfortable furniture for relaxing.",
+        q_en: "23. The _______ was a large room with comfortable furniture for relaxing.",
+        options_ar: ["lobby", "terrace", "lounge", "keep"],
+        options_en: ["lobby", "terrace", "lounge", "keep"],
+        correct: 2,
+        exp_ar: "lounge: غرفة الجلوس والاستراحة المجهزة بأثاث مريح.",
+        exp_en: "A lounge is a comfortable room furnished for relaxation."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "٢٤. He was _______ for non-payment of rent by court order.",
+        q_en: "24. He was _______ for non-payment of rent by court order.",
+        options_ar: ["evacuated", "vacated", "evocated", "evicted"],
+        options_en: ["evacuated", "vacated", "evocated", "evicted"],
+        correct: 3,
+        exp_ar: "evicted: طُرد وأُخلي قسراً من المسكن لعدم دفع الإيجار.",
+        exp_en: "Evicted means legally expelled from a rental property for non-payment."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "٢٥. A _______ is a person who provides food and drink for special occasions or events.",
+        q_en: "25. A _______ is a person who provides food and drink for special occasions or events.",
+        options_ar: ["landlord", "caretaker", "carrier", "caterer"],
+        options_en: ["landlord", "caretaker", "carrier", "caterer"],
+        correct: 3,
+        exp_ar: "caterer: متعهد التموين والحفلات الذي يوفر الطعام والشراب.",
+        exp_en: "A caterer is someone contracted to prepare and supply food/drinks."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "٢٦. Young children can get a severe _______ from knocking pans of boiling water over themselves.",
+        q_en: "26. Young children can get a severe _______ from knocking pans of boiling water over themselves.",
+        options_ar: ["electrocution", "scald", "choke", "fever"],
+        options_en: ["electrocution", "scald", "choke", "fever"],
+        correct: 1,
+        exp_ar: "scald: حرق ناتج عن سائل ساخن أو بخار ماء مغلي.",
+        exp_en: "A scald is a severe burn caused by boiling liquid or steam."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "٢٧. Always turn off the power at the source before repairing devices to avoid _______.",
+        q_en: "27. Always turn off the power at the source before repairing devices to avoid _______.",
+        options_ar: ["electrocutions", "electrifying", "electricians", "scalding"],
+        options_en: ["electrocutions", "electrifying", "electricians", "scalding"],
+        correct: 0,
+        exp_ar: "electrocutions: الصعق الكهربائي القاتل.",
+        exp_en: "Electrocution refers to injury or death caused by electric shock."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "٢٨. If you have young children, it is a good idea to fit safety _______ on electrical sockets.",
+        q_en: "28. If you have young children, it is a good idea to fit safety _______ on electrical sockets.",
+        options_ar: ["covers", "catches", "holders", "rails"],
+        options_en: ["covers", "catches", "holders", "rails"],
+        correct: 0,
+        exp_ar: "safety covers: أغطية حماية وسدادات لمقابس الكهرباء.",
+        exp_en: "Safety covers are fitted over electrical sockets to protect children."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "٢٩. Fit safety _______ on all low drawers and cupboards that children can reach.",
+        q_en: "29. Fit safety _______ on all low drawers and cupboards that children can reach.",
+        options_ar: ["covers", "catches", "holders", "sockets"],
+        options_en: ["covers", "catches", "holders", "sockets"],
+        correct: 1,
+        exp_ar: "safety catches: أقفال ومزالج أمان للأدراج لمنع فتحها من قبل الأطفال.",
+        exp_en: "Safety catches lock drawers and cupboards from being opened by toddlers."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "٣٠. If you don't fit a _______ at the top of the stairs, toddlers might fall down.",
+        q_en: "30. If you don't fit a _______ at the top of the stairs, toddlers might fall down.",
+        options_ar: ["safety catch", "guard rail", "safety mat", "safety gate"],
+        options_en: ["safety catch", "guard rail", "safety mat", "safety gate"],
+        correct: 3,
+        exp_ar: "safety gate: بوابة أمان للأطفال تُركب على الدرج لحمايتهم من السقوط.",
+        exp_en: "A safety gate blocks the stairway to prevent young children falling."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "٣١. A _______ had been fitted all the way round the deep swimming pool.",
+        q_en: "31. A _______ had been fitted all the way round the deep swimming pool.",
+        options_ar: ["guard rail", "safety mat", "safety cover", "gate"],
+        options_en: ["guard rail", "safety mat", "safety cover", "gate"],
+        correct: 0,
+        exp_ar: "guard rail: حاجز حماية وسور حديدي حول المسبح.",
+        exp_en: "A guard rail is a barrier erected around a pool perimeter for safety."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "٣٢. A _______ is a rented room in a house that someone lives in and pays rent for.",
+        q_en: "32. A _______ is a rented room in a house that someone lives in and pays rent for.",
+        options_ar: ["bungalow", "hut", "lodging", "spare room"],
+        options_en: ["bungalow", "hut", "lodging", "spare room"],
+        correct: 2,
+        exp_ar: "lodging: مسكن أو غرفة مستأجرة مقابل إيجار.",
+        exp_en: "A lodging is rented accommodation in someone else's house."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "٣٣. It was the most _______ anniversary celebration that the couple had ever had.",
+        q_en: "33. It was the most _______ anniversary celebration that the couple had ever had.",
+        options_ar: ["memorized", "momenta", "memorizing", "memorable"],
+        options_en: ["memorized", "momenta", "memorizing", "memorable"],
+        correct: 3,
+        exp_ar: "memorable: لا يُنسى ورائع ويعلق بالذاكرة.",
+        exp_en: "Memorable means worth remembering or unforgettable."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "٣٤. Despite the strong storm winds that blew last night, the mountain hut remained _______.",
+        q_en: "34. Despite the strong storm winds that blew last night, the mountain hut remained _______.",
+        options_ar: ["decayed", "intact", "eloquent", "occupied"],
+        options_en: ["decayed", "intact", "eloquent", "occupied"],
+        correct: 1,
+        exp_ar: "intact: سليم وغير متهدم أو متضرر من الرياح.",
+        exp_en: "Intact means undamaged and complete despite strong forces."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "٣٥. Josh is quite an _______ public speaker; I could listen to him for hours!",
+        q_en: "35. Josh is quite an _______ public speaker; I could listen to him for hours!",
+        options_ar: ["eloquent", "isolated", "intact", "occupied"],
+        options_en: ["eloquent", "isolated", "intact", "occupied"],
+        correct: 0,
+        exp_ar: "eloquent: فصيح وبليغ ومتحدث مفوه ومؤثر.",
+        exp_en: "Eloquent means articulate, fluent, and persuasive in speech."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "٣٦. I know I shouldn't have told you about the surprise, but I couldn't _______ the temptation.",
+        q_en: "36. I know I shouldn't have told you about the surprise, but I couldn't _______ the temptation.",
+        options_ar: ["feature", "resist", "decay", "occupy"],
+        options_en: ["feature", "resist", "decay", "occupy"],
+        correct: 1,
+        exp_ar: "resist temptation: يقاوم الإغراء أو الفضول.",
+        exp_en: "'Resist' means to withstand the temptation or urge."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "٣٧. All these hi-tech electrical _______ have made modern household chores very easy.",
+        q_en: "37. All these hi-tech electrical _______ have made modern household chores very easy.",
+        options_ar: ["appliances", "features", "outskirts", "authorities"],
+        options_en: ["appliances", "features", "outskirts", "authorities"],
+        correct: 0,
+        exp_ar: "electrical appliances: الأجهزة المنزلية الكهربائية الحديثة.",
+        exp_en: "Electrical appliances are domestic machines that simplify chores."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "٣٨. The old abandoned mansion has fallen into _______ since the owners moved abroad.",
+        q_en: "38. The old abandoned mansion has fallen into _______ since the owners moved abroad.",
+        options_ar: ["intact", "decay", "appliance", "feature"],
+        options_en: ["intact", "decay", "appliance", "feature"],
+        correct: 1,
+        exp_ar: "fallen into decay: تدهور وتهدم وأصبح خرباً مع الوقت.",
+        exp_en: "'Fallen into decay' means deteriorated into a ruinous state."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "٣٩. He is of average height with a pale _______.",
+        q_en: "39. He is of average height with a pale _______.",
+        options_ar: ["parting", "build", "look", "complexion"],
+        options_en: ["parting", "build", "look", "complexion"],
+        correct: 3,
+        exp_ar: "pale complexion: بشرة ولون وجه شاحب.",
+        exp_en: "Complexion refers to the natural appearance and color of the skin of the face."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "٤٠. Jenny has got lovely _______ cheeks and bright eyes.",
+        q_en: "40. Jenny has got lovely _______ cheeks and bright eyes.",
+        options_ar: ["rosy", "arched", "wavy", "thick"],
+        options_en: ["rosy", "arched", "wavy", "thick"],
+        correct: 0,
+        exp_ar: "rosy cheeks: وجنتان ورديتان مفعمتان بالنضارة.",
+        exp_en: "Rosy cheeks means warm, pink, healthy-looking cheeks."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "٤١. Listen! Outside in the alley, some dogs are _______ loudly.",
+        q_en: "41. Listen! Outside in the alley, some dogs are _______ loudly.",
+        options_ar: ["splashing", "barking", "crashing", "wailing"],
+        options_en: ["splashing", "barking", "crashing", "wailing"],
+        correct: 1,
+        exp_ar: "barking: نباح الكلاب (bark).",
+        exp_en: "Dogs bark; wailing is for sirens, splashing is for liquids."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "٤٢. Listen! A police siren is _______ in the distance.",
+        q_en: "42. Listen! A police siren is _______ in the distance.",
+        options_ar: ["barking", "wailing", "crashing", "splashing"],
+        options_en: ["barking", "wailing", "crashing", "splashing"],
+        correct: 1,
+        exp_ar: "wailing siren: صفارة الإنذار أو النجدة التي تعوي وتطلق صوتاً متواصلاً.",
+        exp_en: "Sirens wail; dogs bark; waves splash."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "٤٣. They had to build an extra room when they became short of _______.",
+        q_en: "43. They had to build an extra room when they became short of _______.",
+        options_ar: ["room", "space", "place", "flat"],
+        options_en: ["room", "space", "place", "flat"],
+        correct: 1,
+        exp_ar: "short of space: عانوا من نقص في المساحة الكافية (space).",
+        exp_en: "'Short of space' means lacking sufficient physical room."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "٤٤. The two connected rooms are joined together by a _______ glass door.",
+        q_en: "44. The two connected rooms are joined together by a _______ glass door.",
+        options_ar: ["built-in", "sliding", "moving", "fitted"],
+        options_en: ["built-in", "sliding", "moving", "fitted"],
+        correct: 1,
+        exp_ar: "sliding glass door: باب زجاجي جرار ينزلق أفقياً.",
+        exp_en: "A sliding glass door opens horizontally on a track."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "٤٥. Kevin is probably the most _______ person I've ever met; he is always in such a joyful mood.",
+        q_en: "45. Kevin is probably the most _______ person I've ever met; he is always in such a joyful mood.",
+        options_ar: ["aggressive", "cheerful", "anxious", "depressed"],
+        options_en: ["aggressive", "cheerful", "anxious", "depressed"],
+        correct: 1,
+        exp_ar: "cheerful: بشوش ومبتهج ودائم الابتسامة.",
+        exp_en: "Cheerful means noticeably happy, optimistic, and in good spirits."
+      },
+      {
+        cat: "upstream_vocab",
+        q_ar: "٤٦. She is such an _______ person that nothing ever seems to annoy or stress her.",
+        q_en: "46. She is such an _______ person that nothing ever seems to annoy or stress her.",
+        options_ar: ["rude", "expressive", "easy-going", "delighted"],
+        options_en: ["rude", "expressive", "easy-going", "delighted"],
+        correct: 2,
+        exp_ar: "easy-going: شخص هادئ ومرن وصبور لا يتعكر مزاجه بسهولة.",
+        exp_en: "Easy-going means relaxed, tolerant, and calm in all situations."
+      },
+
+      // === PHRASAL VERBS (47 - 58) ===
+      {
+        cat: "phrasals",
+        q_ar: "٤٧. John has come _______ with chickenpox and won't be able to come today.",
+        q_en: "47. John has come _______ with chickenpox and won't be able to come today.",
+        options_ar: ["down", "up", "on", "in"],
+        options_en: ["down", "up", "on", "in"],
+        correct: 0,
+        exp_ar: "come down with: يصاب بعدوى أو مرض ما.",
+        exp_en: "'Come down with' means to fall sick with a disease."
+      },
+      {
+        cat: "phrasals",
+        q_ar: "٤٨. When Mary's grandfather passed away, she came _______ a considerable fortune.",
+        q_en: "48. When Mary's grandfather passed away, she came _______ a considerable fortune.",
+        options_ar: ["into", "out", "off", "in"],
+        options_en: ["into", "out", "off", "in"],
+        correct: 0,
+        exp_ar: "come into money: يرث ثروة مالية.",
+        exp_en: "'Come into' means to inherit money or property."
+      },
+      {
+        cat: "phrasals",
+        q_ar: "٤٩. According to the police report, the fire broke _______ on the second floor.",
+        q_en: "49. According to the police report, the fire broke _______ on the second floor.",
+        options_ar: ["down", "up", "out", "off"],
+        options_en: ["down", "up", "out", "off"],
+        correct: 2,
+        exp_ar: "break out: يندلع فجأة (للحرائق، الحروب، والأوبئة).",
+        exp_en: "'Break out' means to erupt suddenly (fires, wars, diseases)."
+      },
+      {
+        cat: "phrasals",
+        q_ar: "٥٠. Masked burglars broke _______ the mansion and stole the jewels.",
+        q_en: "50. Masked burglars broke _______ the mansion and stole the jewels.",
+        options_ar: ["out", "down", "into", "away"],
+        options_en: ["out", "down", "into", "away"],
+        correct: 2,
+        exp_ar: "break into: يقتحم مكاناً عنوة للسرقة.",
+        exp_en: "'Break into' means to enter by force illegally to steal."
+      },
+      {
+        cat: "phrasals",
+        q_ar: "٥١. Schools in Egypt break _______ for the summer vacation in June.",
+        q_en: "51. Schools in Egypt break _______ for the summer vacation in June.",
+        options_ar: ["up", "down", "off", "away"],
+        options_en: ["up", "down", "off", "away"],
+        correct: 0,
+        exp_ar: "break up: تغلق المدارس وتبدأ العطلة الرسمية.",
+        exp_en: "'Break up' means school terms end and holidays start."
+      },
+      {
+        cat: "phrasals",
+        q_ar: "٥٢. The two nations broke _______ peace talks after the dispute arose.",
+        q_en: "52. The two nations broke _______ peace talks after the dispute arose.",
+        options_ar: ["off", "into", "down", "of"],
+        options_en: ["off", "into", "down", "of"],
+        correct: 0,
+        exp_ar: "break off: يقطع علاقات أو محادثات فجأة وبشكل قاطع.",
+        exp_en: "'Break off' means to abruptly terminate negotiations or relations."
+      },
+      {
+        cat: "phrasals",
+        q_ar: "٥٣. Walking along my old street always brings _______ fond memories of childhood.",
+        q_en: "53. Walking along my old street always brings _______ fond memories of childhood.",
+        options_ar: ["out", "up", "back", "down"],
+        options_en: ["out", "up", "back", "down"],
+        correct: 2,
+        exp_ar: "bring back memories: يسترجع ويستحضر الذكريات القديمة.",
+        exp_en: "'Bring back' means to make one recall past memories."
+      },
+      {
+        cat: "phrasals",
+        q_ar: "٥٤. The renowned author has a thrilling novel coming _______ next Friday.",
+        q_en: "54. The renowned author has a thrilling novel coming _______ next Friday.",
+        options_ar: ["up", "across", "into", "out"],
+        options_en: ["up", "across", "into", "out"],
+        correct: 3,
+        exp_ar: "come out: يطرح للأسواق ويُنشر (كتاب أو ألبوم).",
+        exp_en: "'Come out' means to be released or published."
+      },
+      {
+        cat: "phrasals",
+        q_ar: "٥٥. The rock band have just brought _______ their eagerly anticipated record.",
+        q_en: "55. The rock band have just brought _______ their eagerly anticipated record.",
+        options_ar: ["up", "out", "of", "off"],
+        options_en: ["up", "out", "of", "off"],
+        correct: 1,
+        exp_ar: "bring out: يطرح ويصدر عملاً جديداً للجمهور.",
+        exp_en: "'Bring out' means to produce and release a new product or record."
+      },
+      {
+        cat: "phrasals",
+        q_ar: "٥٦. Danny carried his graduation speech _______ perfectly despite his stage fright.",
+        q_en: "56. Danny carried his graduation speech _______ perfectly despite his stage fright.",
+        options_ar: ["away", "on", "off", "out"],
+        options_en: ["away", "on", "off", "out"],
+        correct: 2,
+        exp_ar: "carry off: ينجح في أداء شيء صعب باقتدار وجدارة.",
+        exp_en: "'Carry off' means to execute or pull off something challenging successfully."
+      },
+      {
+        cat: "phrasals",
+        q_ar: "٥٧. The young doctor carried _______ extensive clinical research in the hospital.",
+        q_en: "57. The young doctor carried _______ extensive clinical research in the hospital.",
+        options_ar: ["on", "away", "out", "up"],
+        options_en: ["on", "away", "out", "up"],
+        correct: 2,
+        exp_ar: "carry out: يجري أو ينفذ أبحاثاً وتجارب.",
+        exp_en: "'Carry out' means to perform, conduct, or execute."
+      },
+      {
+        cat: "phrasals",
+        q_ar: "٥٨. Liz has come up _______ an ingenious answer to our math puzzle.",
+        q_en: "58. Liz has come up _______ an ingenious answer to our math puzzle.",
+        options_ar: ["for", "by", "into", "with"],
+        options_en: ["for", "by", "into", "with"],
+        correct: 3,
+        exp_ar: "come up with: يبتكر ويقترح فكرة أو حلاً.",
+        exp_en: "'Come up with' means to produce or suggest an idea or answer."
+      },
+
+      // === IDIOMS & PREPOSITIONS (59 - 70) ===
+      {
+        cat: "idioms",
+        q_ar: "٥٩. Why are you furious? It was only a harmless _______ lie.",
+        q_en: "59. Why are you furious? It was only a harmless _______ lie.",
+        options_ar: ["white", "pink", "blue", "green"],
+        options_en: ["white", "pink", "blue", "green"],
+        correct: 0,
+        exp_ar: "white lie: كذبة بيضاء لا تؤذي أحداً.",
+        exp_en: "A white lie is a harmless untruth told to spare feelings."
+      },
+      {
+        cat: "idioms",
+        q_ar: "٦٠. They visit the national theatre once in a _______ moon; very seldom indeed.",
+        q_en: "60. They visit the national theatre once in a _______ moon; very seldom indeed.",
+        options_ar: ["blue", "black", "red", "purple"],
+        options_en: ["blue", "black", "red", "purple"],
+        correct: 0,
+        exp_ar: "once in a blue moon: نادر الحدوث للغاية.",
+        exp_en: "'Once in a blue moon' means very rarely."
+      },
+      {
+        cat: "idioms",
+        q_ar: "٦١. Sarah has got green _______; all her plants bloom magnificently.",
+        q_en: "61. Sarah has got green _______; all her plants bloom magnificently.",
+        options_ar: ["fingers", "eyes", "toes", "dimples"],
+        options_en: ["fingers", "eyes", "toes", "dimples"],
+        correct: 0,
+        exp_ar: "have green fingers: موهبة وبراعة في زراعة النباتات.",
+        exp_en: "'Green fingers' indicates natural gardening talent."
+      },
+      {
+        cat: "idioms",
+        q_ar: "٦٢. He was dismissed _______ his job after repeated absences.",
+        q_en: "62. He was dismissed _______ his job after repeated absences.",
+        options_ar: ["from", "of", "for", "with"],
+        options_en: ["from", "of", "for", "with"],
+        correct: 0,
+        exp_ar: "dismissed from: مفصول ومطرود من وظيفته.",
+        exp_en: "The verb 'dismiss' takes 'from' in employment context."
+      },
+      {
+        cat: "idioms",
+        q_ar: "٦٣. It took Mark a long time to become accustomed _______ the humid climate.",
+        q_en: "63. It took Mark a long time to become accustomed _______ the humid climate.",
+        options_ar: ["with", "for", "to", "by"],
+        options_en: ["with", "for", "to", "by"],
+        correct: 2,
+        exp_ar: "accustomed to: معتاد على شيء ما.",
+        exp_en: "'Accustomed' is followed by the preposition 'to'."
+      },
+      {
+        cat: "idioms",
+        q_ar: "٦٤. The detective accused the suspect _______ taking the cash.",
+        q_en: "64. The detective accused the suspect _______ taking the cash.",
+        options_ar: ["of", "with", "to", "for"],
+        options_en: ["of", "with", "to", "for"],
+        correct: 0,
+        exp_ar: "accused of: متهم بارتكاب كذا.",
+        exp_en: "'Accused' takes 'of' (accused of a crime)."
+      },
+      {
+        cat: "idioms",
+        q_ar: "٦٥. The culprit has been charged _______ armed robbery.",
+        q_en: "65. The culprit has been charged _______ armed robbery.",
+        options_ar: ["for", "of", "with", "by"],
+        options_en: ["for", "of", "with", "by"],
+        correct: 2,
+        exp_ar: "charged with: موجه إليه اتهام رسمي قضائياً.",
+        exp_en: "'Charged' takes the preposition 'with'."
+      },
+      {
+        cat: "idioms",
+        q_ar: "٦٦. Helen is a sweet dreamer, but she always has her head in the _______.",
+        q_en: "66. Helen is a sweet dreamer, but she always has her head in the _______.",
+        options_ar: ["sky", "stars", "clouds", "air"],
+        options_en: ["sky", "stars", "clouds", "air"],
+        correct: 2,
+        exp_ar: "head in the clouds: شارد الذهن وغير مدرك للواقع.",
+        exp_en: "'Head in the clouds' means daydreaming and detached from reality."
+      },
+      {
+        cat: "idioms",
+        q_ar: "٦٧. It was just an argument, but they were both getting hot under the _______.",
+        q_en: "67. It was just an argument, but they were both getting hot under the _______.",
+        options_ar: ["collar", "red", "heated", "warm"],
+        options_en: ["collar", "red", "heated", "warm"],
+        correct: 0,
+        exp_ar: "hot under the collar: مستشيط غضباً ومنفعل.",
+        exp_en: "'Hot under the collar' means visibly irritated and angry."
+      },
+      {
+        cat: "idioms",
+        q_ar: "٦٨. Now that he's recovered, he is _______ again and enjoying life.",
+        q_en: "68. Now that he's recovered, he is _______ again and enjoying life.",
+        options_ar: ["about and out", "well and around", "out and about", "up and off"],
+        options_en: ["about and out", "well and around", "out and about", "up and off"],
+        correct: 2,
+        exp_ar: "out and about: معافى ويتحرك بنشاط بعد وعكة صحية.",
+        exp_en: "'Out and about' means recovered and active outside again."
+      },
+      {
+        cat: "idioms",
+        q_ar: "٦٩. If someone refuses to cooperate with the group, he refuses to _______.",
+        q_en: "69. If someone refuses to cooperate with the group, he refuses to _______.",
+        options_ar: ["take the ball", "play the ball", "catch the ball", "pass the ball"],
+        options_en: ["take the ball", "play the ball", "catch the ball", "pass the ball"],
+        correct: 1,
+        exp_ar: "refuses to play the ball: يرفض التعاون والمشاركة الإيجابية.",
+        exp_en: "'Play the ball' means to cooperate with others."
+      },
+      {
+        cat: "idioms",
+        q_ar: "٧٠. Chris does noble work for charity; he's always fundraising for a good _______.",
+        q_en: "70. Chris does noble work for charity; he's always fundraising for a good _______.",
+        options_ar: ["aim", "example", "cause", "reason"],
+        options_en: ["aim", "example", "cause", "reason"],
+        correct: 2,
+        exp_ar: "for a good cause: من أجل غاية وقضية خيرية وإنسانية نبيلة.",
+        exp_en: "'A good cause' refers to a worthy charitable purpose."
+      },
+
+      // === GRAMMAR, COMMAS & TEXTBOOK (71 - 75) ===
+      {
+        cat: "grammar",
+        q_ar: "٧١. This soft fabric _______ wonderful; what is it made of?",
+        q_en: "71. This soft fabric _______ wonderful; what is it made of?",
+        options_ar: ["is feeling", "feels", "has felt", "felt"],
+        options_en: ["is feeling", "feels", "has felt", "felt"],
+        correct: 1,
+        exp_ar: "فعل feel هنا من أفعال الحالة (Stative verb) ويأتي في المضارع البسيط دون استمرار.",
+        exp_en: "'Feel' here is a stative verb expressing a quality, thus in Present Simple."
+      },
+      {
+        cat: "grammar",
+        q_ar: "٧٢. I _______ waiting for you for three hours in the cold!",
+        q_en: "72. I _______ waiting for you for three hours in the cold!",
+        options_ar: ["have been", "has been", "had been", "was"],
+        options_en: ["have been", "has been", "had been", "was"],
+        correct: 0,
+        exp_ar: "have been waiting: مضارع تام مستمر يعبر عن حدث بدأ في الماضي ومستمر مع المدة.",
+        exp_en: "Present Perfect Continuous (have been waiting) highlights an ongoing action."
+      },
+      {
+        cat: "grammar",
+        q_ar: "٧٣. The train to Alexandria _______ at 7:30 tomorrow morning.",
+        q_en: "73. The train to Alexandria _______ at 7:30 tomorrow morning.",
+        options_ar: ["starts", "is starting", "has started", "start"],
+        options_en: ["starts", "is starting", "has started", "start"],
+        correct: 0,
+        exp_ar: "جدول المواعيد الثابتة للمواصلات يأتي في المضارع البسيط (starts).",
+        exp_en: "Fixed public transport timetables require the Present Simple tense."
+      },
+      {
+        cat: "grammar",
+        q_ar: "٧٤. In: 'After the storm stopped, the sun came out.', the comma is a/an _______ comma.",
+        q_en: "74. In: 'After the storm stopped, the sun came out.', the comma is a/an _______ comma.",
+        options_ar: ["Introducer", "Coordinator", "Inserter", "Tag"],
+        options_en: ["Introducer", "Coordinator", "Inserter", "Tag"],
+        correct: 0,
+        exp_ar: "Introducer Comma تأتي بعد الجملة التمهيدية في بداية الكلام لتفصلها عن الجملة الرئيسية.",
+        exp_en: "An Introducer Comma follows introductory dependent clauses."
+      },
+      {
+        cat: "grammar",
+        q_ar: "٧٥. In: 'He was a remarkable fisherman, wasn't he?', the comma is a/an _______ comma.",
+        q_en: "75. In: 'He was a remarkable fisherman, wasn't he?', the comma is a/an _______ comma.",
+        options_ar: ["Introducer", "Coordinator", "Inserter", "Tag"],
+        options_en: ["Introducer", "Coordinator", "Inserter", "Tag"],
+        correct: 3,
+        exp_ar: "Tag Comma تسبق السؤال المذيل في نهاية الجملة.",
+        exp_en: "A Tag Comma precedes a question tag at the end of a statement."
+      },
+
+      // === NOVEL: THE OLD MAN AND THE SEA (76 - 77) ===
+      {
+        cat: "novel",
+        q_ar: "٧٦. Why did Manolin's parents forbid him from continuing to fish with Santiago after 40 days?",
+        q_en: "76. Why did Manolin's parents forbid him from continuing to fish with Santiago after 40 days?",
+        options_ar: [
+          "They considered Santiago 'salao' (the worst form of unlucky)",
+          "Santiago was too harsh with the boy",
+          "They wanted Manolin to go to school in Havana",
+          "The boat was broken and sinking"
+        ],
+        options_en: [
+          "They considered Santiago 'salao' (the worst form of unlucky)",
+          "Santiago was too harsh with the boy",
+          "They wanted Manolin to go to school in Havana",
+          "The boat was broken and sinking"
+        ],
+        correct: 0,
+        exp_ar: "اعتبر والدا مانولين أن سانتياغو أصبح نحساً (Salao) بعد 40 يوماً بلا سمكة واحدة.",
+        exp_en: "His parents forced him onto a luckier boat because Santiago was 'salao'."
+      },
+      {
+        cat: "novel",
+        q_ar: "٧٧. Santiago views the ocean as _______, contrasting with younger fishermen who view it as 'el mar'.",
+        q_en: "77. Santiago views the ocean as _______, contrasting with younger fishermen who view it as 'el mar'.",
+        options_ar: [
+          "a ruthless business competitor",
+          "la mar - a gentle woman who gives or withholds great favors",
+          "an unfeeling monster to be destroyed",
+          "merely a source of income"
+        ],
+        options_en: [
+          "a ruthless business competitor",
+          "la mar - a gentle woman who gives or withholds great favors",
+          "an unfeeling monster to be destroyed",
+          "merely a source of income"
+        ],
+        correct: 1,
+        exp_ar: "يرى سانتياغو البحر كأنثى رقيقة ويسميها بلغة المحبة 'La Mar' بينما الصيادون الجدد يرونه عدواً تجارياً.",
+        exp_en: "Santiago views the ocean kindly as 'la mar', a feminine presence."
+      }
+    ];
+
+    let currentFilter = 'all';
+
+    function filterQuiz() {
+      currentFilter = document.getElementById('quizFilter').value;
+      renderExam();
+    }
+
+    function renderExam() {
+      const container = document.getElementById('quizContainer');
+      container.innerHTML = '';
+
+      const filteredList = examQuestions.filter(item => {
+        if (currentFilter === 'all') return true;
+        return item.cat === currentFilter;
+      });
+
+      document.getElementById('quizTotal').textContent = filteredList.length;
+
+      filteredList.forEach((item, idx) => {
+        const card = document.createElement('div');
+        card.className = "bg-slate-900/60 border border-slate-800/90 rounded-2xl p-4 sm:p-5 space-y-3 transition-all";
+        card.id = `qCard-${idx}`;
+
+        const qText = currentLanguage === 'ar' ? item.q_ar : item.q_en;
+        const opts = currentLanguage === 'ar' ? item.options_ar : item.options_en;
+
+        let optsHtml = '';
+        opts.forEach((opt, oIdx) => {
+          optsHtml += `
+            <label class="flex items-center gap-3 p-3 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-slate-700 cursor-pointer text-xs sm:text-sm text-slate-200 transition">
+              <input type="radio" name="q-${idx}" value="${oIdx}" class="text-indigo-500 focus:ring-0">
+              <span class="font-semibold font-mono en-code">${opt}</span>
+            </label>
+          `;
+        });
+
+        card.innerHTML = `
+          <div class="flex items-center justify-between text-xs text-slate-400 mb-1">
+            <span class="font-mono text-sky-400 font-bold">#${idx + 1}</span>
+            <span class="uppercase font-mono text-[10px] px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700">${item.cat}</span>
+          </div>
+          <h4 class="font-bold text-slate-100 text-xs sm:text-sm leading-relaxed">${qText}</h4>
+          <div class="space-y-2 pt-1">${optsHtml}</div>
+          <div id="fb-${idx}" class="hidden p-3 rounded-xl text-xs leading-relaxed mt-2 font-mono"></div>
+        `;
+        container.appendChild(card);
+      });
+
+      document.getElementById('quizBadge').classList.add('hidden');
+    }
+
+    function submitExam() {
+      let score = 0;
+      const filteredList = examQuestions.filter(item => {
+        if (currentFilter === 'all') return true;
+        return item.cat === currentFilter;
+      });
+
+      filteredList.forEach((item, idx) => {
+        const selected = document.querySelector(`input[name="q-${idx}"]:checked`);
+        const fb = document.getElementById(`fb-${idx}`);
+        const card = document.getElementById(`qCard-${idx}`);
+        fb.classList.remove('hidden');
+
+        const exp = currentLanguage === 'ar' ? item.exp_ar : item.exp_en;
+        const correctText = currentLanguage === 'ar' ? item.options_ar[item.correct] : item.options_en[item.correct];
+
+        if (selected) {
+          const val = parseInt(selected.value);
+          if (val === item.correct) {
+            score++;
+            card.classList.add('border-emerald-500/50');
+            card.classList.remove('border-rose-500/50', 'border-amber-500/50');
+            fb.className = "p-3 rounded-xl text-xs bg-emerald-950/40 border border-emerald-500/30 text-emerald-300";
+            fb.innerHTML = `✓ ${currentLanguage === 'ar' ? 'إجابة صحيحة ممتازة!' : 'Correct answer!'} • ${exp}`;
+          } else {
+            card.classList.add('border-rose-500/50');
+            card.classList.remove('border-emerald-500/50', 'border-amber-500/50');
+            fb.className = "p-3 rounded-xl text-xs bg-rose-950/40 border border-rose-500/30 text-rose-300";
+            fb.innerHTML = `✗ ${currentLanguage === 'ar' ? 'إجابة خاطئة! الصحيح:' : 'Incorrect! Correct:'} (${correctText}) • ${exp}`;
+          }
+        } else {
+          card.classList.add('border-amber-500/50');
+          fb.className = "p-3 rounded-xl text-xs bg-amber-950/40 border border-amber-500/30 text-amber-300";
+          fb.innerHTML = `! ${currentLanguage === 'ar' ? 'لم تقم بالإجابة! الصحيح هو:' : 'Not answered! Correct:'} (${correctText}) • ${exp}`;
+        }
+      });
+
+      const badge = document.getElementById('quizBadge');
+      document.getElementById('quizScore').textContent = score;
+      badge.classList.remove('hidden');
+      badge.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      showToast(`${currentLanguage === 'ar' ? 'تم التصحيح! درجتك' : 'Your score'}: ${score} / ${filteredList.length}`);
+    }
+
+    window.onload = function() {
+      renderExam();
+    };
+  </script>
+</body>
+</html>
